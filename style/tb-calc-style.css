@@ -41,11 +41,11 @@
     }
     @media screen and (min-width:  1200px){
         h2{
-           font-size: 1.5rem;
-       }
-   }
+         font-size: 1.5rem;
+     }
+ }
 
-   .card-wrapper{
+ .calc-page{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,6 +61,13 @@
     font-size: .875rem;
     box-shadow: -1px 1px 4px 0 rgb(117 138 172 / 12%);
     position: relative;
+    height: max-content;
+    width: max-content;
+}
+@media screen and (max-width:  767px){
+    .card{
+        width: 100%;
+    }
 }
 .card .card__header{
     padding-bottom: 10px;
@@ -77,6 +84,11 @@
     padding: 1rem;
     display: flex;
     gap:  2rem;
+}
+@media screen and (max-width:  767px){
+    .card .card__body{
+        flex-direction: column-reverse;
+    }
 }
 .card__empty{
     display: flex;
