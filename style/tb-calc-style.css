@@ -62,13 +62,9 @@
     box-shadow: -1px 1px 4px 0 rgb(117 138 172 / 12%);
     position: relative;
     height: max-content;
-    width: max-content;
+    width: 100%;
 }
-@media screen and (max-width:  360px){
-    .card{
-        width: 100%;
-    }
-}
+
 .card .card__header{
     padding-bottom: 10px;
     text-align: center;
