@@ -39,7 +39,7 @@
         font-size: 1.125rem;
         margin-bottom: 1.3125rem;
     }
-    @media screen and (min-width:  1200px){
+    @media screen and (min-width:  361px){
         h2{
          font-size: 1.5rem;
      }
@@ -64,7 +64,7 @@
     height: max-content;
     width: max-content;
 }
-@media screen and (max-width:  767px){
+@media screen and (max-width:  360px){
     .card{
         width: 100%;
     }
@@ -85,7 +85,10 @@
     display: flex;
     gap:  2rem;
 }
-@media screen and (max-width:  767px){
+.card .card__body div:first-child{
+    flex: 1;
+}
+@media screen and (max-width:  360px){
     .card .card__body{
         flex-direction: column-reverse;
     }
