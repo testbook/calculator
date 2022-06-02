@@ -7,11 +7,13 @@ const calcEmptyBody = document.getElementById('cardBody');
 const calcInputText = document.getElementById('inputText');
 const calcInputAnsText = document.getElementById('inputAnsText');
 const calcHelpherText = document.getElementById('cardHelpher');
+const calcAnsText = document.getElementById('cardAnsTxt');
+
 
 const errorAlertText = 'Should be minimum 1 character.';
 
-const inputSelector = document.getElementById('feetNumber');
-const resultSelector = document.getElementById('resultNumber');
+const inputSelector = document.getElementById('inputValNumber');
+const resultSelector = document.getElementById('resultValNumber');
 const errorAlertSelector = document.getElementById('errorAlert');
 
 
@@ -68,32 +70,43 @@ window.onload = function() {
 
 
 function calculateFun() {
+
+    var userHelpText = function(calcValue){    
+        return `${inputSelector.value} ${calcInputText.innerText} = ${calcValue} ${calcInputAnsText.innerText}`;
+    } 
+
     if(!inputSelector.checkValidity() || inputSelector.validity.patternMismatch) {
         inputSelector.parentElement.classList.add('has-error');
         resultSelector.value = "";
     }
     else if(calcType === 'billion2rupees'){
      resultSelector.value = Math.round(Number(inputSelector.value)*1000*1000000* 1000) / 1000;
- }
- else if(calcType === 'feet2cm'){
-    resultSelector.value = Math.round(Number(inputSelector.value)*30.48 * 100) / 100;
-}
-else if(calcType === 'gallon2liter'){
-    resultSelector.value = Math.round(Number(inputSelector.value)*3.78541* 1000) / 1000;
-}
-else if(calcType === 'mm2cm'){
-    resultSelector.value = Math.round(Number(inputSelector.value)*0.1* 100) / 100;
-}
-else if(calcType === 'million2lakhs'){
-    resultSelector.value = Math.round(Number(inputSelector.value)*10* 100) / 100;
-}
-else if(calcType === 'metres2feet'){
-    resultSelector.value = Math.round(Number(inputSelector.value)*3.28084* 1000) / 1000;
-}
-else if(calcType === 'lbs2kg'){
-    resultSelector.value = Math.round(Number(inputSelector.value)*0.45359237* 10000) / 10000;
-}
-
+     calcAnsText.innerText = userHelpText(resultSelector.value);
+    } 
+    else if(calcType === 'feet2cm'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*30.48 * 100) / 100;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'gallon2liter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*3.78541* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'mm2cm'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.1* 100) / 100;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'million2lakhs'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*10* 100) / 100;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'metres2feet'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*3.28084* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'lbs2kg'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.45359237* 10000) / 10000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
 
 }
 
@@ -121,4 +134,5 @@ function resetFun(){
     errorAlertSelector.innerHTML = '';
     inputSelector.value = "";
     resultSelector.value =  "";
+    calcAnsText.innerText = "";
 }

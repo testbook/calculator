@@ -81,7 +81,7 @@
     display: flex;
     gap:  2rem;
 }
-.card .card__body div:first-child{
+.card .card__body > div:first-child{
     flex: 1;
 }
 @media screen and (max-width:  360px){
@@ -101,9 +101,9 @@
     display: flex;
     border-radius: 6px;
     overflow: hidden;
-    background: #86a1ae;
+    background: #0ad0f4;
     align-items: center;
-    border: 1px solid #86a1ae;
+    border: 1px solid #0ad0f4;
     margin-bottom: 1rem;
 }
 .input-group.has-error{
@@ -123,6 +123,7 @@
     border: 0;
     font-size: 16px;
     width: 100%;
+    background: #fff;
 }
 .input-action{
     display: flex;
@@ -132,9 +133,9 @@
     margin-bottom: 2rem;
 }
 .input-action button{
-    background: #86a1ae;
+    background: #0ad0f4;
     color: #fff;
-    border: 1px solid #86a1ae;
+    border: 1px solid #0ad0f4;
     border-radius: 6px;
     padding: 8px 16px;
     cursor: pointer;
@@ -162,3 +163,10 @@
     height: max-content;
     cursor: pointer;
 }
+.ans-help-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

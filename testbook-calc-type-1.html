@@ -17,7 +17,7 @@
                 <div>
                     <div class="input-group">
                         <div id="inputText"></div>
-                        <input onkeypress="onkeyPressFun()" type="text" name="feetNumber" id="feetNumber" pattern="^[.0-9]*$" required minlength="1">
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputValNumber" id="inputValNumber" pattern="^[.0-9]*$" required minlength="1">
                     </div>
                     <div class="input-action">
                         <button onclick="calculateFun()">Convert</button>
@@ -25,12 +25,15 @@
                             <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
                         </div>
                     </div>
-                    <div class="input-group input-group--ans">
+                    <div class="input-group" id=inputResultStyle>
                         <div id="inputAnsText"></div>
-                        <input type="text" name="resultNumber" disabled value="" id="resultNumber">
+                        <input type="text" name="resultValNumber" disabled value="" id="resultValNumber">
                     </div>
+                    <div class="ans-help-text" id="cardAnsTxt"></div>
                 </div>
-                <div id="cardHelpher"></div>
+                <div >
+                    <div id="cardHelpher"></div>
+                </div>
             </div>  
         </div>
     
