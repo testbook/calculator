@@ -114,6 +114,7 @@
 .input-group > div{
     padding: 4px 12px;
     color: #fff;
+    white-space: nowrap;
 }
 .input-group > input{
     padding: 0;

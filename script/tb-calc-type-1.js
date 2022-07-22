@@ -90,6 +90,21 @@ window.onload = function() {
         case "hour2minute":
         calcHelpherText.innerText = 'Ex: 1 Hour = 60 Minutes';
         break;
+        case "acre2sqmeter":
+        calcHelpherText.innerText = 'Ex: 1 Acre = 4046.856 Square meter';
+        break;
+        case "squarefoot2squarmeter":
+        calcHelpherText.innerText = 'Ex: 1 Square foot = 0.09290304 Square meter';
+        break;
+        case "cubicinch2liter":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Inch = 0.016 Liter';
+        break;
+        case "millimeter2inch":
+        calcHelpherText.innerText = 'Ex: 1 mm = 0.03937007874 Inch';
+        break;
+        case "decameter2meter":
+        calcHelpherText.innerText = 'Ex: 1 dam = 10 m';
+        break;
         default:
         calcTitleTxt.innerText = 'wrong url';
         calcEmptyBody.innerHTML = `<div class="card__empty"><h3>Wrong URl</h3></div>`
@@ -190,6 +205,26 @@ function calculateFun() {
     }
     else if(calcType === 'hour2minute'){
         resultSelector.value = Math.round(Number(inputSelector.value)*60* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'acre2sqmeter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*4046.856422* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squarefoot2squarmeter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.09290304* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicinch2liter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.016387064* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'millimeter2inch'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.03937007874* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'decameter2meter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*10* 100) / 100;
         calcAnsText.innerText = userHelpText(resultSelector.value);
     }
 
