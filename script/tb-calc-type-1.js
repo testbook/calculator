@@ -105,6 +105,54 @@ window.onload = function() {
         case "decameter2meter":
         calcHelpherText.innerText = 'Ex: 1 dam = 10 m';
         break;
+        case "squaremeter2acre":
+        calcHelpherText.innerText = 'Ex: 1 sq.m = 0.00024710538146717 Acre';
+        break;
+        case "acre2squarefeet":
+        calcHelpherText.innerText = 'Ex: 1 Acre = 43560 sq ft.';
+        break;
+        case "squarefoot2acer":
+        calcHelpherText.innerText = 'Ex: 43560 square feet in 1 acre';
+        break;
+        case "meter2yard":
+        calcHelpherText.innerText = 'Ex: 1 Meter = 1.09361 Yards';
+        break;
+        case "cubicfoot2quart":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Foot = 29.9221 Liquid Quart';
+        break;
+        case "decameter2kilometer":
+        calcHelpherText.innerText = 'Ex: 1 Decameter = 0.01 Kilometer';
+        break;
+        case "inch2yard":
+        calcHelpherText.innerText = 'Ex: 1 Inch = 0.0277777778 Yards';
+        break;
+        case "squaremile2acre":
+        calcHelpherText.innerText = 'Ex: 1 Square Mile = 640 Acre';
+        break;
+        case "cubicfoot2cubicyard":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Foot = 0.037037 Cubic Yard';
+        break;
+        case "cubicfoot2liter":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Foot = 28.31685 Liter';
+        break;
+        case "cubicfoot2inch":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Foot = 1728 Cubic Inch';
+        break;
+        case "squaremile2are":
+        calcHelpherText.innerText = 'Ex: 1 square mile = 25899.92 are';
+        break;
+        case "cubicinch2imperialgallon":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Inch = 0.00360465 Imperial Gallon';
+        break;
+        case "cubicfoot2gallon":
+        calcHelpherText.innerText = 'Ex: 1 cubic foot = 7.48051948 US gallons';
+        break;
+        case "decameter2millimeter":
+        calcHelpherText.innerText = 'Ex: 1 Decameter = 10000 Millimeter';
+        break;
+        case "decameter2statutemiles":
+        calcHelpherText.innerText = 'Ex: 1 Decameter = 0.006 Statute Miles';
+        break;
         default:
         calcTitleTxt.innerText = 'wrong url';
         calcEmptyBody.innerHTML = `<div class="card__empty"><h3>Wrong URl</h3></div>`
@@ -225,6 +273,66 @@ function calculateFun() {
     }
     else if(calcType === 'decameter2meter'){
         resultSelector.value = Math.round(Number(inputSelector.value)*10* 100) / 100;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squaremeter2acre'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.00024710538146717* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'acre2squarefeet'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*43560* 100) / 100;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squarefoot2acer'){
+        resultSelector.value = Math.round(Number(inputSelector.value)/43560* 1000)/1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'meter2yard'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*1.09361* 1000)/1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2quart'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*29.9221* 1000)/1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'decameter2kilometer'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.01* 1000)/1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'inch2yard'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.0277777778* 1000)/1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squaremile2acre'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*640* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2cubicyard'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.037037* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2inch'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*1728* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squaremile2are'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*25899.92* 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicinch2imperialgallon'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.00360465 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2gallon'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*7.48051948 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'decameter2millimeter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*1000 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'decameter2statutemiles'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.006 * 1000) / 1000;
         calcAnsText.innerText = userHelpText(resultSelector.value);
     }
 
