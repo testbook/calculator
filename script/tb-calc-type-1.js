@@ -153,6 +153,48 @@ window.onload = function() {
         case "decameter2statutemiles":
         calcHelpherText.innerText = 'Ex: 1 Decameter = 0.006 Statute Miles';
         break;
+        case "squaremile2hectare":
+        calcHelpherText.innerText = 'Ex: 1 Square Mile = 258.999 hectares';
+        break;
+        case "squaremile2squarekm":
+        calcHelpherText.innerText = 'Ex: 1 Square Mile = 2.58999 Square Kilometer';
+        break;
+        case "squaremile2squaremeter":
+        calcHelpherText.innerText = 'Ex: 1 Square Mile = 2589988.11 Square Meter';
+        break;
+        case "cm2km":
+        calcHelpherText.innerText = 'Ex: 1 cm = 0.00001 km';
+        break;
+        case "decameter2feet":
+        calcHelpherText.innerText = 'Ex: 1 Decameter = 32.8084 Feet';
+        break;
+        case "cubicfoot2gallondry":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Foot = 6.43 Dry Gallon (US)';
+        break;
+        case "cubicfoot2pintdry":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Foot = 51.43 Pint Dry (US)';
+        break;
+        case "cubicfoot2milliliter":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Foot (ft3) =  28316.8466 Milliliter (mL)';
+        break;
+        case "cubicfoot2pint":
+        calcHelpherText.innerText = 'Ex: 1 Cubic foot = 59.844 Pint (US)';
+        break;
+        case "cubicinch2imperialpint":
+        calcHelpherText.innerText = 'Ex: 1 Cubic Inch = 0.034632 pt';
+        break;
+        case "decameter2inches":
+        calcHelpherText.innerText = 'Ex: 1 decameter = 393.7 inches';
+        break;
+        case "meter2mile":
+        calcHelpherText.innerText = 'Ex: 1 m = 0.00062 mile';
+        break;
+        case "cubicfoot2cubicmeter":
+        calcHelpherText.innerText = 'Ex: 1 cubic foot (ft3) = 0.0283168466 cubic meter (m3)';
+        break;
+        case "inch2cm":
+        calcHelpherText.innerText = '1 inch = 2.54 centimeter';
+        break;
         default:
         calcTitleTxt.innerText = 'wrong url';
         calcEmptyBody.innerHTML = `<div class="card__empty"><h3>Wrong URl</h3></div>`
@@ -333,6 +375,62 @@ function calculateFun() {
     }
     else if(calcType === 'decameter2statutemiles'){
         resultSelector.value = Math.round(Number(inputSelector.value)*0.006 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squaremile2hectare'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*258.9988 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squaremile2squarekm'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*2.589988 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squaremile2squaremeter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*2589988.11 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cm2km'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.00001 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'decameter2feet'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*32.8084 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2gallondry'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*6.43 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2pintdry'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*51.43 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2milliliter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*28316.846592 * 100) / 100;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2pint'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*59.844 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicinch2imperialpint'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.034632 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'decameter2inches'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*393.701 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'meter2mile'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.00062 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'cubicfoot2cubicmeter'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*0.0283168466 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'inch2cm'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*2.54 * 100) / 100;
         calcAnsText.innerText = userHelpText(resultSelector.value);
     }
 
