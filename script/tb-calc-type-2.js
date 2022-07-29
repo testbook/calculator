@@ -25,8 +25,9 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputSelector.checkValidity() || !inputSelector2.checkValidity() || inputSelector.validity.patternMismatch || inputSelector2.validity.patternMismatch) {
+    if (!inputSelector.checkValidity() || inputSelector.validity.patternMismatch) {
         inputSelector.parentElement.classList.add('has-error');
+    } else if (!inputSelector2.checkValidity() || inputSelector2.validity.patternMismatch) {
         inputSelector2.parentElement.classList.add('has-error');
         resultSelector.value = "";
     } else {
