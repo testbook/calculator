@@ -195,6 +195,9 @@ window.onload = function() {
         case "inch2cm":
         calcHelpherText.innerText = '1 inch = 2.54 centimeter';
         break;
+        case "squaremeter2squarefoot":
+        calcHelpherText.innerText = '1 square meter = 10.76391041671 square feet.';
+        break;
         default:
         calcTitleTxt.innerText = 'wrong url';
         calcEmptyBody.innerHTML = `<div class="card__empty"><h3>Wrong URl</h3></div>`
@@ -431,6 +434,10 @@ function calculateFun() {
     }
     else if(calcType === 'inch2cm'){
         resultSelector.value = Math.round(Number(inputSelector.value)*2.54 * 100) / 100;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+    else if(calcType === 'squaremeter2squarefoot'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*10.76391041671 * 1000) / 1000;
         calcAnsText.innerText = userHelpText(resultSelector.value);
     }
 
