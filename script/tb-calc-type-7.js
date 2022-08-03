@@ -6,7 +6,8 @@ const calcEmptyBody = document.getElementById('cardBody');
 const errorAlertText = 'Should be minimum 1 character.';
 const errorAlertSelector = document.getElementById('errorAlert');
 
-const inputNumber = document.getElementById('inputNumber');
+const inputNumberFirst = document.getElementById('inputNumberFirst');
+const inputNumberSecond = document.getElementById('inputNumberSecond');
 const resultBox = document.getElementById('resultBox');
 const errorAlert = document.getElementById('errorAlert');
 
