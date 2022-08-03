@@ -67,9 +67,8 @@
     
     .calc-page {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: center;
-        padding: 1rem 1rem;
     }
     
     .card {
