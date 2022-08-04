@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Supplementary Angle Calculator</h2>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body" id="cardBody">
+            <div class="input-group">
+                <span class="input-addon">Enter Angle A</span>
+                <input onkeypress="onkeyPressFun()" type="text" name="inputNumber" id="inputNumber" pattern="^[.0-9]*$" required minlength="1">
+            </div>
+        
+            <div class="input-action">
+                <button onclick="calculateFun()">Convert</button>
+                <div onclick="resetFun()" class="input-reset">
+                    <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                </div>
+            </div>
+
+            <div class="btn-group">
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Supplementary Angle</span>
+                    <input type="text" name="resultBox" disabled value="" id="resultBox">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./script/tb-calc-type-13.js"></script>
+</body>
+
+</html>
