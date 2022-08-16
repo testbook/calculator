@@ -196,7 +196,10 @@ window.onload = function() {
         calcHelpherText.innerText = '1 inch = 2.54 centimeter';
         break;
         case "squaremeter2squarefoot":
-        calcHelpherText.innerText = '1 square meter = 10.76391041671 square feet.';
+        calcHelpherText.innerText = '1 square meter = 10.76391041671 square feet';
+        break;
+        case "hectare2acre":
+        calcHelpherText.innerText = '1 Hectare = 2.471 Acres';
         break;
         default:
         calcTitleTxt.innerText = 'wrong url';
@@ -438,6 +441,11 @@ function calculateFun() {
     }
     else if(calcType === 'squaremeter2squarefoot'){
         resultSelector.value = Math.round(Number(inputSelector.value)*10.76391041671 * 1000) / 1000;
+        calcAnsText.innerText = userHelpText(resultSelector.value);
+    }
+
+    else if(calcType === 'hectare2acre'){
+        resultSelector.value = Math.round(Number(inputSelector.value)*2.471 * 1000) / 1000;
         calcAnsText.innerText = userHelpText(resultSelector.value);
     }
 
