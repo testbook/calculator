@@ -29,17 +29,21 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputNumber.checkValidity() || inputNumber.validity.patternMismatch) {
+    if (!inputNumber.checkValidity()) {
         
         inputNumber.parentElement.classList.add('has-error');
 
     }else{
 
-        let finalValue = math.fraction(inputNumber.value);
-        console.log(finalValue);
         
-        resultBoxFirst.value = finalValue.n;
-        resultBoxSecond.value = finalValue.d;
+        let parser = math.parser();
+        let inputValue=inputNumber.value;
+
+        let finalValueFirst = parser.evaluate(`mean(${inputValue})`)
+        let finalValueSecond = parser.evaluate(`variance(${inputValue})`)
+        
+        resultBoxFirst.value = finalValueFirst;
+        resultBoxSecond.value = finalValueSecond;
     }
 
 }

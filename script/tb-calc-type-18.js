@@ -36,7 +36,6 @@ function calculateFun() {
     }else{
 
         let finalValue = math.fraction(inputNumber.value);
-        console.log(finalValue);
         
         resultBoxFirst.value = finalValue.n;
         resultBoxSecond.value = finalValue.d;
