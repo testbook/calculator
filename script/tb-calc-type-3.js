@@ -33,17 +33,32 @@ function calculateFun() {
     } else {
         let firstValue = firstNumber.value;
         let secondValue = secondNumber.value;
-        if (firstValue > secondValue) {
-            resultSignBox.value = '>';
-            resultBox.value = "GREATER";
-        } else if (firstValue < secondValue) {
+        if(firstValue < 0 && secondValue < 0){
+            if (firstValue > secondValue) {
             resultSignBox.value = '<';
             resultBox.value = "LESS";
+        } else if (firstValue < secondValue) {
+            resultSignBox.value = '>';
+            resultBox.value = "GREATER";
         } else if (firstValue == secondValue) {
             resultSignBox.value = '=';
             resultBox.value = "EQUAL";
 
         }
+        }else{
+           if (firstValue > secondValue) {
+                resultSignBox.value = '>';
+                resultBox.value = "GREATER";
+            } else if (firstValue < secondValue) {
+                resultSignBox.value = '<';
+                resultBox.value = "LESS";
+            } else if (firstValue == secondValue) {
+                resultSignBox.value = '=';
+                resultBox.value = "EQUAL";
+
+            } 
+        }
+        
     }
 
 }
