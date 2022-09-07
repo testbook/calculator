@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Hexagon Calculator</h2>
+            <p>Enter all the numbers separated by comma</p>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <div class="input-group">
+                    <span class="input-addon">Edge Length(a)</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumber" id="inputNumber" 
+                    pattern="/^\.{1}\d|\d|[-\d]/g" required minlength="1">
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateFun()">Convert</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Area of Hexagon :</span>
+                    <input type="text" name="resultBoxFirst" disabled value="" id="resultBoxFirst">
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Perimeter of Hexagon :</span>
+                    <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxSecond">
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Incircle of Hexagon :</span>
+                    <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxThird">
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Diagonal of Hexagon :</span>
+                    <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxFourth">
+                </div>
+            </div>
+            <div style="padding: 1rem 3rem;">
+            <img src="https://hexnet.org/files/images/hexnet/hex-apothem.png" alt="Hexagon Image" width="150" height="auto">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/tb-calc-type-21.js"></script>
+</body>
+
+</html>

@@ -91,7 +91,7 @@ window.onload = function() {
         calcHelpherText.innerText = 'Ex: 1 Hour = 60 Minutes';
         break;
         case "acre2sqmeter":
-        calcHelpherText.innerText = 'Ex: 1 Acre = 4046.856 Square meter';
+        calcHelpherText.innerTeDecember 29, 1992xt = 'Ex: 1 Acre = 4046.856 Square meter';
         break;
         case "squarefoot2squarmeter":
         calcHelpherText.innerText = 'Ex: 1 Square foot = 0.09290304 Square meter';

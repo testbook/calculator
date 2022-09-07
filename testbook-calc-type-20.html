@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Cone Calculator</h2>
+            <p>Enter all the numbers separated by comma</p>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <div class="input-group">
+                    <span class="input-addon">Radius</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" 
+                    pattern="/^\.{1}\d|\d|[-\d]/g" required minlength="1">
+                </div>
+                <div class="input-group">
+                    <span class="input-addon">Height</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond" 
+                    pattern="/.\d|-\d|0\d|\d/g" required minlength="1">
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateFun()">Calculate</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Slant Height of Cone :</span>
+                    <input type="text" name="resultBoxFirst" disabled value="" id="resultBoxFirst">
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Volume of Cone :</span>
+                    <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxSecond">
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Curved Surface Area of Cone :</span>
+                    <input type="text" name="resultBoxThird" disabled value="" id="resultBoxThird">
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Total Surface Area of Cone :</span>
+                    <input type="text" name="resultBoxFourth" disabled value="" id="resultBoxFourth">
+                </div>
+            </div>
+            <div style="padding: 1rem 3rem;">
+                <img src="https://www.cs.swarthmore.edu/~adanner/cs21/f09/cone_1.gif" alt="Cone Image" width="100%" height="auto">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/tb-calc-type-20.js"></script>
+</body>
+
+</html>

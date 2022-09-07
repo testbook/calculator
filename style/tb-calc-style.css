@@ -239,3 +239,7 @@
         align-items: center;
         gap: 1rem;
     }
+    
+    .card .card__body.card__body--flex-row{
+        flex-direction: row;
+    }
