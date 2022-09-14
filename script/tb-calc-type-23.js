@@ -8,8 +8,8 @@ const errorAlertSelector = document.getElementById('errorAlert');
 
 const inputNumberFirst = document.getElementById('inputNumberFirst');
 const inputNumberSecond = document.getElementById('inputNumberSecond');
-const inputNumberThird = document.getElementById('inputNumberThird');
-const resultBox = document.getElementById('resultBox');
+const resultBoxFirst = document.getElementById('resultBoxFirst');
+const resultBoxSecond = document.getElementById('resultBoxSecond');
 const errorAlert = document.getElementById('errorAlert');
 
 
@@ -17,7 +17,7 @@ const errorAlert = document.getElementById('errorAlert');
 window.onload = function() {
 
     switch (calcType) {
-        case "pythagorean-triples-calculator":
+        case "remainder-calculator":
             break;
         default:
             calcEmptyBody.innerHTML = `
@@ -34,18 +34,12 @@ function calculateFun() {
         inputNumberFirst.parentElement.classList.add('has-error');
     }else if(!inputNumberSecond.checkValidity()){
         inputNumberSecond.parentElement.classList.add('has-error');
-    }else if(!inputNumberThird.checkValidity()){
-        inputNumberThird.parentElement.classList.add('has-error');
     }else{
         a = inputNumberFirst.value;
         b = inputNumberSecond.value;
-        c = inputNumberThird.value;
 
-        if((Math.pow(a,2) + Math.pow(b,2)) == Math.pow(c,2)){
-            resultBox.value = "YES";
-        }else{
-            resultBox.value = "NO";
-        }
+        resultBoxFirst.value = a/b;
+        resultBoxSecond.value = a%b;
     }
 
 }
@@ -55,7 +49,6 @@ function calculateFun() {
 function onkeyPressFun() {
     inputNumberFirst.parentElement.classList.remove('has-error');
     inputNumberSecond.parentElement.classList.remove('has-error');
-    inputNumberThird.parentElement.classList.remove('has-error');
     errorAlertSelector.innerHTML = '';
     checkEvent(event);
 }
@@ -69,12 +62,9 @@ function checkEvent(event) {
         if (inputNumberFirst.value.length == 0) {
             errorAlertSelector.innerHTML = errorAlertText;
             inputNumberFirst.parentElement.classList.add('has-error');
-        }else if (inputNumberSecond.value.length == 0) {
+        }else if(inputNumberSecond.value.length == 0){
             errorAlertSelector.innerHTML = errorAlertText;
             inputNumberSecond.parentElement.classList.add('has-error');
-        }else if (inputNumberThird.value.length == 0) {
-            errorAlertSelector.innerHTML = errorAlertText;
-            inputNumberThird.parentElement.classList.add('has-error');
         }
     }
 }
@@ -83,9 +73,8 @@ function resetFun() {
     inputNumberFirst.parentElement.classList.remove('has-error');
     inputNumberFirst.value = "";
     inputNumberSecond.parentElement.classList.remove('has-error');
-    inputNumberSecond.value = "";
-    inputNumberThird.parentElement.classList.remove('has-error');
-    inputNumberThird.value = "";
+    inputNumberSecond.value = ""
     errorAlertSelector.innerHTML = "";
-    resultBox.value = "";
+    resultBoxFirst.value = "";
+    resultBoxSecond.value = "";
 }

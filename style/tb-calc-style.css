@@ -53,6 +53,13 @@
         font-weight: 600;
         line-height: 1.4;
     }
+
+    hr{
+        background: #0ad0f4;
+        border-width: 0;
+        height: 2px;
+        margin-bottom: 1rem;
+    }
     
     h2 {
         font-size: 1.125rem;
