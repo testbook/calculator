@@ -12,19 +12,20 @@
 <body class="calc-page">
     <div class="card card--center">
         <div class="card__header">
-            <h2>Cone Calculator</h2>
-            <p>Enter all the numbers separated by comma</p>
+            <h2>Profit Calculator</h2>
+            <div>Profit = Selling Price - Cost Price</div>
+            <div> Profit Percent = (Profit x 100) / Cost Price</div>
         </div>
         <div id="errorAlert"></div>
         <div class="card__body card__body--flex-row" id="cardBody">
             <div>
                 <div class="input-group">
-                    <span class="input-addon">Radius</span>
+                    <span class="input-addon">Cost Price (c.p)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" 
                     required>
                 </div>
                 <div class="input-group">
-                    <span class="input-addon">Height</span>
+                    <span class="input-addon">Selling Price (s.p)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond" 
                     required>
                 </div>
@@ -35,28 +36,18 @@
                     </div>
                 </div>
                 <div class="input-group" id=inputResultStyle>
-                    <span class="input-addon">Slant Height of Cone :</span>
-                    <input type="text" name="resultBoxFirst" disabled value="" id="resultBoxFirst">
+                    <span class="input-addon">Profit</span>
+                    <input type="text" name="resultBox" disabled value="" id="resultBoxFirst">
                 </div>
                 <div class="input-group" id=inputResultStyle>
-                    <span class="input-addon">Volume of Cone :</span>
-                    <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxSecond">
+                    <span class="input-addon">Profit Percent</span>
+                    <input type="text" name="resultBox" disabled value="" id="resultBoxSecond">
+                    <span class="input-addon">%</span>
                 </div>
-                <div class="input-group" id=inputResultStyle>
-                    <span class="input-addon">Curved Surface Area of Cone :</span>
-                    <input type="text" name="resultBoxThird" disabled value="" id="resultBoxThird">
-                </div>
-                <div class="input-group" id=inputResultStyle>
-                    <span class="input-addon">Total Surface Area of Cone :</span>
-                    <input type="text" name="resultBoxFourth" disabled value="" id="resultBoxFourth">
-                </div>
-            </div>
-            <div style="padding: 1rem 3rem;">
-                <img src="https://www.cs.swarthmore.edu/~adanner/cs21/f09/cone_1.gif" alt="Cone Image" width="100%" height="auto">
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="./script/tb-calc-type-20.js"></script>
+    <script type="text/javascript" src="./script/tb-calc-type-29.js"></script>
 </body>
 
 </html>

@@ -10,8 +10,7 @@ const inputNumberFirst = document.getElementById('inputNumberFirst');
 const inputNumberSecond = document.getElementById('inputNumberSecond');
 const resultBox = document.getElementById('resultBox');
 const errorAlert = document.getElementById('errorAlert');
-
-
+const pattern = /.{1}\d|\d|-{1}\d|-{1}.{1}\d|,{1}.{1}\d|,{1}\d|,{1}-{1}\d|,{1}-{1}.{1}\d/;
 
 window.onload = function() {
 
@@ -29,9 +28,9 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputNumberFirst.checkValidity()) {
+    if (!inputNumberFirst.checkValidity() || !pattern.test(inputNumberFirst.value)) {
         inputNumberFirst.parentElement.classList.add('has-error');
-    }else if (!inputNumberSecond.checkValidity()){
+    }else if (!inputNumberSecond.checkValidity() || !pattern.test(inputNumberSecond.value)){
         inputNumberSecond.parentElement.classList.add('has-error');
     }
     else{

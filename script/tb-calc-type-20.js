@@ -13,8 +13,7 @@ const resultBoxSecond = document.getElementById('resultBoxSecond');
 const resultBoxThird = document.getElementById('resultBoxThird');
 const resultBoxFourth = document.getElementById('resultBoxFourth');
 const errorAlert = document.getElementById('errorAlert');
-
-
+const pattern = /.{1}\d|\d|-{1}\d/;
 
 window.onload = function() {
 
@@ -32,10 +31,10 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputNumberFirst.checkValidity() || inputNumberFirst.validity.patternMismatch) {
+    if (!inputNumberFirst.checkValidity() || !pattern.test(inputNumberFirst.value)) {
         inputNumberFirst.parentElement.classList.add('has-error');
     }
-    else if(!inputNumberSecond.checkValidity() || inputNumberSecond.validity.patternMismatch){
+    else if(!inputNumberSecond.checkValidity() || !pattern.test(inputNumberSecond.value)){
         inputNumberSecond.parentElement.classList.add('has-error'); 
     }else{
 

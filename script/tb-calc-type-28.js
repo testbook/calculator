@@ -12,8 +12,6 @@ const resultBoxSecond = document.getElementById('resultBoxSecond');
 const errorAlert = document.getElementById('errorAlert');
 const pattern = /.{1}\d|\d|-{1}\d|-{1}.{1}\d|,{1}.{1}\d|,{1}\d|,{1}-{1}\d|,{1}-{1}.{1}\d/;
 
-
-
 window.onload = function() {
 
     switch (calcType) {

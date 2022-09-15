@@ -12,8 +12,7 @@ const resultBoxSecond = document.getElementById('resultBoxSecond');
 const resultBoxThird = document.getElementById('resultBoxThird');
 const resultBoxFourth = document.getElementById('resultBoxFourth');
 const errorAlert = document.getElementById('errorAlert');
-
-
+const pattern= /.{1}\d|\d|-{1}\d/;
 
 window.onload = function() {
 
@@ -31,10 +30,8 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputNumber.checkValidity() || inputNumber.validity.patternMismatch) {
-        
+    if (!inputNumber.checkValidity() || !pattern.test(inputNumber.value)) {
         inputNumber.parentElement.classList.add('has-error');
-
     }else{
         edge = inputNumber.value;
         area = Math.pow(edge, 2) * ((3*Math.sqrt(3))/2);

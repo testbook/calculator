@@ -14,10 +14,11 @@ const errorAlert = document.getElementById('errorAlert');
 const pattern = /.{1}\d|\d|-{1}\d/;
 
 
+
 window.onload = function() {
 
     switch (calcType) {
-        case "remainder-calculator":
+        case "profit-calculator":
             break;
         default:
             calcEmptyBody.innerHTML = `
@@ -35,11 +36,11 @@ function calculateFun() {
     }else if(!inputNumberSecond.checkValidity() || !pattern.test(inputNumberSecond.value)){
         inputNumberSecond.parentElement.classList.add('has-error');
     }else{
-        a = inputNumberFirst.value;
-        b = inputNumberSecond.value;
+       cp = inputNumberFirst.value;
+       sp = inputNumberSecond.value;
 
-        resultBoxFirst.value = a/b;
-        resultBoxSecond.value = a%b;
+       resultBoxFirst.value = sp - cp;
+       resultBoxSecond.value = (resultBoxFirst.value*100)/cp;
     }
 
 }
