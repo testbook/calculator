@@ -20,13 +20,13 @@
                 <div class="input-group">
                     <span class="input-addon">Dividend (a)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" 
-                    required minlength="1">
+                    required pattern=".{1}\d|\d|-{1}\d">
                 </div>
                 <hr>
                 <div class="input-group">
                     <span class="input-addon">Divisor (b</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond" 
-                    required minlength="1">
+                    required pattern=".{1}\d|\d|-{1}\d">
                 </div>
                 <div class="input-action">
                     <button onclick="calculateFun()">Calculate</button>

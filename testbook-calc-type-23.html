@@ -20,17 +20,17 @@
                 <div class="input-group">
                     <span class="input-addon">Enter Perpendicular Side (a)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" 
-                    required minlength="1">
+                    required pattern=".{1}\d|\d|-{1}\d">
                 </div>
                 <div class="input-group">
                     <span class="input-addon">Enter Base Side (b)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond" 
-                    required minlength="1">
+                    required pattern=".{1}\d|\d|-{1}\d">
                 </div>
                 <div class="input-group">
                     <span class="input-addon">Enter Hypotenuse Side(c)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberThird" id="inputNumberThird" 
-                    required minlength="1">
+                    required pattern=".{1}\d|\d|-{1}\d">
                 </div>
                 <div class="input-action">
                     <button onclick="calculateFun()">Check</button>

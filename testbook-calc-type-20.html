@@ -21,12 +21,12 @@
                 <div class="input-group">
                     <span class="input-addon">Radius</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" 
-                    pattern="/^\.{1}\d|\d|[-\d]/g" required minlength="1">
+                    required pattern=".{1}\d|\d|-{1}\d">
                 </div>
                 <div class="input-group">
                     <span class="input-addon">Height</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond" 
-                    pattern="/.\d|-\d|0\d|\d/g" required minlength="1">
+                    required pattern=".{1}\d|\d|-{1}\d">
                 </div>
                 <div class="input-action">
                     <button onclick="calculateFun()">Calculate</button>

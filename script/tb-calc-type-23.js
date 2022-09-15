@@ -30,11 +30,11 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputNumberFirst.checkValidity()) {
+    if (!inputNumberFirst.checkValidity() || inputNumberFirst.validity.patternMismatch) {
         inputNumberFirst.parentElement.classList.add('has-error');
-    }else if(!inputNumberSecond.checkValidity()){
+    }else if(!inputNumberSecond.checkValidity() || inputNumberSecond.validity.patternMismatch){
         inputNumberSecond.parentElement.classList.add('has-error');
-    }else if(!inputNumberThird.checkValidity()){
+    }else if(!inputNumberThird.checkValidity() || inputNumberThird.validity.patternMismatch){
         inputNumberThird.parentElement.classList.add('has-error');
     }else{
         a = inputNumberFirst.value;

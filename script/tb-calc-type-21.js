@@ -31,7 +31,7 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputNumber.checkValidity()) {
+    if (!inputNumber.checkValidity() || inputNumber.validity.patternMismatch) {
         
         inputNumber.parentElement.classList.add('has-error');
 

@@ -9,7 +9,7 @@ const errorAlertSelector = document.getElementById('errorAlert');
 const inputNumber = document.getElementById('inputNumber');
 const resultBox = document.getElementById('resultBox');
 const errorAlert = document.getElementById('errorAlert');
-const pattern = /[.0-9]|,\d|-\d/g; 
+const pattern = /.{1}\d|\d|-{1}\d|-{1}.{1}\d|,{1}.{1}\d|,{1}\d|,{1}-{1}\d|,{1}-{1}.{1}\d/;
 
 
 
@@ -29,16 +29,14 @@ window.onload = function() {
 
 
 function calculateFun() {
-    if (!inputNumber.checkValidity() && String(inputNumber.val).match(pattern)) {
+    if (!inputNumber.checkValidity() || !pattern.test(inputNumber.value)) {
         inputNumber.parentElement.classList.add('has-error');
-        console(inputNumber.match(pattern));
+        console.log(pattern.test(inputNumber.value));
     }else{
         resultBox.value = inputNumber.value.split(",").sort();
     }
 
 }
-
-
 
 function onkeyPressFun() {
     inputNumber.parentElement.classList.remove('has-error');

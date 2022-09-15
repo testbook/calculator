@@ -21,7 +21,7 @@
                 <div class="input-group">
                     <span class="input-addon">Edge Length(a)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumber" id="inputNumber" 
-                    pattern="/^\.{1}\d|\d|[-\d]/g" required minlength="1">
+                    pattern=".{1}\d|\d|-{1}\d" required minlength="1">
                 </div>
                 <div class="input-action">
                     <button onclick="calculateFun()">Convert</button>

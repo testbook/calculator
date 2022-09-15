@@ -36,8 +36,10 @@ function calculateFun() {
         inputNumberFirst.parentElement.classList.add('has-error');
     }
     else if(!inputNumberSecond.checkValidity() || inputNumberSecond.validity.patternMismatch){
-        inputNumberSecond.parentElement.classList.add('has-error');   
+        inputNumberSecond.parentElement.classList.add('has-error'); 
     }else{
+
+
         let radius = inputNumberFirst.value;
         let height = inputNumberSecond.value;
         
