@@ -12,44 +12,43 @@
 <body class="calc-page">
     <div class="card card--center">
         <div class="card__header">
-            <h2>Remainder Calculator</h2>
+            <h2>Pythagorean Triples Calculator</h2>
         </div>
         <div id="errorAlert"></div>
         <div class="card__body card__body--flex-row" id="cardBody">
             <div>
                 <div class="input-group">
-                    <span class="input-addon">Dividend (a)</span>
+                    <span class="input-addon">Enter Perpendicular Side (a)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" 
                     required minlength="1">
                 </div>
-                <hr>
                 <div class="input-group">
-                    <span class="input-addon">Divisor (b</span>
+                    <span class="input-addon">Enter Base Side (b)</span>
                     <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond" 
                     required minlength="1">
                 </div>
+                <div class="input-group">
+                    <span class="input-addon">Enter Hypotenuse Side(c)</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberThird" id="inputNumberThird" 
+                    required minlength="1">
+                </div>
                 <div class="input-action">
-                    <button onclick="calculateFun()">Calculate</button>
+                    <button onclick="calculateFun()">Check</button>
                     <div onclick="resetFun()" class="input-reset">
                         <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
                     </div>
                 </div>
                 <div class="input-group" id=inputResultStyle>
-                    <span class="input-addon">Quotient</span>
-                    <input type="text" name="resultBox" disabled value="" id="resultBoxFirst">
-                </div>
-                <hr>
-                <div class="input-group" id=inputResultStyle>
-                    <span class="input-addon">Remainder</span>
-                    <input type="text" name="resultBox" disabled value="" id="resultBoxSecond">
+                    <span class="input-addon">Is it a Pythagorean Triples?</span>
+                    <input type="text" name="resultBox" disabled value="" id="resultBox">
                 </div>
             </div>
-            <div style="padding: 1rem 3rem; border: 1px solid #0ad0f4;">
-                <img src="https://www.calculators.tech/imgs/calculators/remainder-calculator/instructions%20image-trasparent.png" alt="Hexagon Image" >
+            <div>
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20210706165906/rightangled.PNG" alt="Hexagon Image" >
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="./script/tb-calc-type-23.js"></script>
+    <script type="text/javascript" src="./script/tb-calc-type-22.js"></script>
 </body>
 
 </html>
