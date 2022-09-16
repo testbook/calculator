@@ -16,7 +16,7 @@ const pattern = /.{1}\d|\d|-{1}\d|-{1}.{1}\d|,{1}.{1}\d|,{1}\d|,{1}-{1}\d|,{1}-{
 window.onload = function() {
 
     switch (calcType) {
-        case "least-to-greatest-calculator":
+        case "least-to-greatest":
             break;
         default:
             calcEmptyBody.innerHTML = `

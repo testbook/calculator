@@ -16,7 +16,7 @@ const pattern= /.{1}\d|\d|-{1}\d/;
 window.onload = function() {
 
     switch (calcType) {
-        case "pythagorean-triples-calculator":
+        case "pythagorean-triples":
             break;
         default:
             calcEmptyBody.innerHTML = `
