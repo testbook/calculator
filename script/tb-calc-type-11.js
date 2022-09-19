@@ -30,9 +30,9 @@ window.onload = function() {
 
 function setLabel(){
     if(switchValue.value === "Moles"){
-        resultBoxLabel.innerText = "Grams =";
+        resultBoxLabel.innerText = "Grams = ";
     }else if(switchValue.value === "Grams"){
-        resultBoxLabel.innerText = "Moles =";
+        resultBoxLabel.innerText = "Moles = ";
     }
 }
 
