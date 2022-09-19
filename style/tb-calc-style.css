@@ -55,10 +55,13 @@
     }
 
     hr{
+        display: flex;
+        align-self: center;
         background: #0ad0f4;
         border-width: 0;
+        border: 0;
+        width: 100%;
         height: 2px;
-        margin-bottom: 1rem;
     }
     
     h2 {
@@ -249,4 +252,56 @@
     
     .card .card__body.card__body--flex-row{
         flex-direction: row;
+    }
+    .gridbox{
+        display: grid; 
+        grid-template-columns: 1fr .5fr 1fr; 
+        grid-template-rows: repeat(3, 36px); 
+        max-width: max-content; 
+        margin: 0 auto;
+        margin-bottom: 2rem;
+    }
+
+    .gridbox.gridbox__vertical :nth-child(n){
+        margin-bottom: 0;
+    }
+    .gridbox.gridbox__vertical :nth-child(1){
+        grid-column: 1;
+        grid-row: 1;
+        text-align: center;
+    }
+    .gridbox.gridbox__vertical :nth-child(2){
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .gridbox.gridbox__vertical :nth-child(3){
+        grid-column: 1;
+        grid-row: 3;
+    }
+    .gridbox.gridbox__vertical :nth-child(4){
+        grid-column: 2;
+        grid-row: span 3; 
+        background: none; 
+        margin: 35% 10px;
+        border-radius: 10px;
+    }
+    .gridbox.gridbox__vertical :nth-child(5){
+        grid-column: 3;
+        grid-row: 1;
+    }
+    .gridbox.gridbox__vertical :nth-child(6){
+        grid-column: 3;
+        grid-row: 2;
+    }
+    .gridbox.gridbox__vertical :nth-child(7){
+        grid-column: 3;
+        grid-row: 3;
+    }
+
+    .dropdown{
+        background: transparent;
+        border: 0;
+        outline: none;
+        color: white;
+        padding: 5px;
     }

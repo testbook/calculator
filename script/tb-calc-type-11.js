@@ -10,7 +10,8 @@ const inputNumberFirst = document.getElementById('inputNumberFirst');
 const inputNumberSecond = document.getElementById('inputNumberSecond');
 const resultBox = document.getElementById('resultBox');
 const errorAlert = document.getElementById('errorAlert');
-
+const switchValue = document.getElementById('units');
+const resultBoxLabel = document.getElementById('resultBoxLabel');
 
 
 window.onload = function() {
@@ -27,6 +28,13 @@ window.onload = function() {
     }
 };
 
+function setLabel(){
+    if(switchValue.value === "Moles"){
+        resultBoxLabel.innerText = "Grams =";
+    }else if(switchValue.value === "Grams"){
+        resultBoxLabel.innerText = "Moles =";
+    }
+}
 
 function calculateFun() {
     if (!inputNumberFirst.checkValidity() || inputNumberFirst.validity.patternMismatch) {
@@ -36,8 +44,16 @@ function calculateFun() {
         inputNumberSecond.parentElement.classList.add('has-error');
         
     }else{
-        let finalValue = inputNumberFirst.value * inputNumberSecond.value;
-        resultBox.value = finalValue;
+        console.log(resultBoxLabel.innerText);
+        if(switchValue.value === "Moles"){
+            resultBoxLabel.innerText = "Grams =";
+            let finalValue = inputNumberFirst.value * inputNumberSecond.value;
+            resultBox.value = finalValue;
+        }else if(switchValue.value === "Grams"){
+            resultBoxLabel.innerText = "Moles =";
+            let finalValue = inputNumberFirst.value / inputNumberSecond.value;
+            resultBox.value = finalValue;
+        }
     }
 
 }

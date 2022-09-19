@@ -18,7 +18,10 @@
         <div id="errorAlert"></div>
         <div class="card__body" id="cardBody">
             <div class="input-group">
-                <span class="input-addon">Moles = </span>
+                <select id="units" class="dropdown" onchange="setLabel()">
+                    <option value="Moles">Moles</option>
+                    <option value="Grams">Grams</option>
+                </select>
                 <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" pattern="^[.0-9]*$" required minlength="1">
             </div>
         
@@ -36,7 +39,7 @@
 
             <div class="btn-group">
                 <div class="input-group" id=inputResultStyle>
-                    <span class="input-addon">Grams = </span>
+                    <span class="input-addon" id="resultBoxLabel">Grams = </span>
                     <input type="text" name="resultBox" disabled value="" id="resultBox">
                 </div>
             </div>
