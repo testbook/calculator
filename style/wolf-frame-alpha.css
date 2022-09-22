@@ -9,7 +9,7 @@
 table.WolframAlphaWidget tr th {
     color: black !important;
     background: transparent !important;
-    padding-bottom: 24px !important;
+    padding: 24px 0 !important;
     text-align: center !important;
     border-bottom: 1px solid #dfe4e8 !important;
     margin-bottom: 1rem !important;
@@ -50,8 +50,9 @@ table.WolframAlphaWidget .submit .m,
   border: 1px solid #0ad0f4;
   color: #fff;
   font-weight: unset !important;
-  padding: 5px 10px !important;
   border-radius: 4px;
+  font-size: 14px !important;
+  padding: 0.65rem 1.5rem !important;
 }
 
 table.WolframAlphaWidget .submit .r,
