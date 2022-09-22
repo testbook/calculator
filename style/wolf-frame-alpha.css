@@ -1,0 +1,117 @@
+/*-- BOTH: form / inner container table --*/
+
+* {
+    height: max-content;
+    width: max-content;
+    font-size: 1rem !important;
+    background: white;
+}
+
+/* header */
+table.WolframAlphaWidget tr th {
+    color: black !important;
+    background: transparent !important;
+    padding: 24px 0 !important;
+    text-align: center !important;
+    border-bottom: 1px solid #dfe4e8 !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.5rem !important;
+}
+.wolframAlphaWidgetBeta{
+    display: none !important;
+}
+
+/* header no title */
+table.WolframAlphaWidget tr.sm th {
+  display: none;
+}
+
+/* body */
+table.WolframAlphaWidget tr td.l {
+  border-left: 1px solid transparent !important;
+}
+
+table.WolframAlphaWidget tr td.r {
+  border-right: 1px solid transparent !important;
+}
+
+/* footer */
+table.WolframAlphaWidget tr.wawf_bot td {
+  display: none;
+}
+
+/* common elements - form stuff */
+table.WolframAlphaWidget .submit .l,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent .submit .l {
+  display: none;
+}
+
+table.WolframAlphaWidget .submit .m,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent .submit .m {
+  background: #0ad0f4 !important;
+  border: 1px solid #0ad0f4;
+  color: #fff;
+  font-weight: unset !important;
+  padding: 5px 10px !important;
+  border-radius: 4px;
+}
+
+table.WolframAlphaWidget .submit .r,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent .submit .r {
+  display: none;
+}
+
+/* all inputs */
+table.WolframAlphaWidget input,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent input,
+table.WolframAlphaWidget select,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent select {
+  margin: 6px;
+  border: 0 none;
+  z-index: 0;
+}
+
+table.WolframAlphaWidget input[type="text"],
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent input[type="text"] {
+  border: 1px solid #0ad0f4 !important;
+  border-radius: 6px;
+  padding: 8px 16px !important;
+}
+
+table.WolframAlphaWidget input[type="text"]:focus,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent input[type="text"]:focus {
+  outline: 1px solid #0ad0f4;
+}
+
+table.WolframAlphaWidget select,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent select {
+  position: relative;
+  border: 1px solid #999;
+}
+
+table.WolframAlphaWidget .multipleChoice,
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent .multipleChoice {
+  padding: 2px 4px 2px 2px;
+}
+
+table.WolframAlphaWidget .multipleChoice input[type="radio"],
+.WolframAlphaWidgetLarge
+  .wolframAlphaWidgetContent
+  .multipleChoice
+  input[type="radio"] {
+  margin: 3px 6px 1px 2px;
+  border: 0 none;
+}
+
+table.WolframAlphaWidget input[type="checkbox"],
+.WolframAlphaWidgetLarge .wolframAlphaWidgetContent input[type="checkbox"] {
+  border: 0 none;
+  margin: 10px 6px 9px;
+  vertical-align: middle;
+}
+
+.wolframAlphaWidgetContent tr:nth-child(2){
+    position: fixed !important;
+    bottom: 15px !important;
+    left: 33% !important;
+}
