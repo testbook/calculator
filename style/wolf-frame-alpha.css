@@ -9,7 +9,7 @@
 table.WolframAlphaWidget tr th {
     color: black !important;
     background: transparent !important;
-    padding: 24px 0 !important;
+    padding-bottom: 24px !important;
     text-align: center !important;
     border-bottom: 1px solid #dfe4e8 !important;
     margin-bottom: 1rem !important;
@@ -78,7 +78,7 @@ table.WolframAlphaWidget input[type="text"],
 
 table.WolframAlphaWidget input[type="text"]:focus,
 .WolframAlphaWidgetLarge .wolframAlphaWidgetContent input[type="text"]:focus {
-  outline: 1px solid #0ad0f4;
+  outline: none;
 }
 
 table.WolframAlphaWidget select,
@@ -109,7 +109,7 @@ table.WolframAlphaWidget input[type="checkbox"],
 }
 
 .wolframAlphaWidgetContent tr:nth-child(2){
-    position: fixed !important;
-    bottom: 15px !important;
-    left: 33% !important;
+    position: absolute !important;
+    left: 45% !important;
+    margin-top: .75rem !important;
 }

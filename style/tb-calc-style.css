@@ -135,7 +135,7 @@
         background: antiquewhite;
     }
     
-    .input-group, table.WolframAlphaWidget input[type="text"], .WolframAlphaWidgetLarge .wolframAlphaWidgetContent input[type="text"] {
+    .input-group {
         display: flex;
         border-radius: 6px;
         overflow: hidden;
