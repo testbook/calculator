@@ -21,7 +21,7 @@ window.onload = function() {
         try {
             wolfFrameElement.setAttribute('id', `WolframAlphaScript${scriptID}`);
             wolfFrameElement.setAttribute('src', `https://www.wolframalpha.com/widget/widget.jsp?id=${scriptID}`);  
-            var body = document.querySelector('body');
+            var body = document.getElementById('cardBody');
             body.appendChild(wolfFrameElement);
         } catch (error) {
             console.error;
