@@ -1,8 +1,6 @@
 /*-- BOTH: form / inner container table --*/
 
 * {
-    height: max-content;
-    width: max-content;
     font-size: 1rem !important;
     background: white;
 }
