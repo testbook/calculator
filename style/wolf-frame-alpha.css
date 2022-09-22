@@ -3,12 +3,22 @@
 * {
     height: max-content;
     width: max-content;
-  font-size: 1rem !important;
+    font-size: 1rem !important;
+    background: white;
 }
 
 /* header */
 table.WolframAlphaWidget tr th {
-  display: none;
+    color: black !important;
+    background: transparent !important;
+    padding: 24px 0 !important;
+    text-align: center !important;
+    border-bottom: 1px solid #dfe4e8 !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.5rem !important;
+}
+.wolframAlphaWidgetBeta{
+    display: none !important;
 }
 
 /* header no title */
@@ -41,7 +51,8 @@ table.WolframAlphaWidget .submit .m,
   background: #0ad0f4 !important;
   border: 1px solid #0ad0f4;
   color: #fff;
-  padding: 8px 13px !important;
+  font-weight: unset !important;
+  padding: 5px 10px !important;
   border-radius: 4px;
 }
 
@@ -97,4 +108,10 @@ table.WolframAlphaWidget input[type="checkbox"],
   border: 0 none;
   margin: 10px 6px 9px;
   vertical-align: middle;
+}
+
+.wolframAlphaWidgetContent tr:nth-child(2){
+    position: fixed !important;
+    bottom: 15px !important;
+    left: 33% !important;
 }
