@@ -109,7 +109,7 @@ table.WolframAlphaWidget input[type="checkbox"],
   vertical-align: middle;
 }
 
-.wolframAlphaWidgetContent tr:nth-child(2){
+.wolframAlphaWidgetContent tr:last-child{
     position: absolute !important;
     left: 45% !important;
     margin-top: .75rem !important;
