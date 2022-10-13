@@ -115,12 +115,6 @@ table.WolframAlphaWidget input[type="checkbox"],
     margin-top: .75rem !important;
 }
 
-.btn-default .wolframAlphaWidgetContent tr:last-child{
-  position: static;
-  left: unset;
-  margin-top: unset;
-}
-
 #wolframAlphaWidget7940 .wolframAlphaWidgetContent tr:last-child{
   position: relative !important;
   left: 0 !important;
