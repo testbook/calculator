@@ -48,7 +48,7 @@ table.WolframAlphaWidget .submit .m,
 .WolframAlphaWidgetLarge .wolframAlphaWidgetContent .submit .m {
   background: #0ad0f4 !important;
   border: 1px solid #0ad0f4;
-  color: #fff;
+  color: #FFFFFF !important;
   font-weight: unset !important;
   border-radius: 4px;
   font-size: 14px !important;
@@ -113,4 +113,21 @@ table.WolframAlphaWidget input[type="checkbox"],
     position: absolute !important;
     left: 45% !important;
     margin-top: .75rem !important;
+}
+
+#wolframAlphaWidget7940 .wolframAlphaWidgetContent tr:last-child{
+  position: relative !important;
+  left: 0 !important;
+}
+
+#wolframAlphaWidget7940 .wolframAlphaWidgetContent tr:last-child .m{
+  color: white !important;
+}
+
+#wolframAlphaWidget59282 .wolframAlphaWidgetContent tr:last-child,
+#wolframAlphaWidget59280 .wolframAlphaWidgetContent tr:last-child,
+#wolframAlphaWidget59317 .wolframAlphaWidgetContent tr:last-child,
+#wolframAlphaWidget59316 .wolframAlphaWidgetContent tr:last-child{
+  position: static !important;
+  left: 0 !important;
 }
