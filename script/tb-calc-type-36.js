@@ -16,7 +16,7 @@ const errorAlert = document.getElementById('errorAlert');
 
 window.onload = function () {
     switch (calcType) {
-        case "percentage-increase-calculator":
+        case "fraction-number-calculator":
             break;
         default:
             calcEmptyBody.innerHTML = `
