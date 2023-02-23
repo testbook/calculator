@@ -16,7 +16,7 @@ const errorAlert = document.getElementById('errorAlert');
 
 window.onload = function () {
     switch (calcType) {
-        case "fraction and whole number calculator":
+        case "fraction-number-calculator":
             break;
         default:
             calcEmptyBody.innerHTML = `
