@@ -43,13 +43,13 @@ function calculateFun() {
             meanInit += Number(init[i]);
         }
         meanValue = meanInit / init.length;
-        resultBoxFirst.value = meanValue.toFixed(3);
+        resultBoxFirst.value = Math.round((meanValue)*1000)/1000;
 
         for (let i = 0; i < init.length; i++) {
             deviInit += Math.abs(Number(init[i]) - meanValue);
         }
         deviValue = deviInit / init.length;
-        resultBoxSecond.value = deviValue.toFixed(3);
+        resultBoxSecond.value = Math.round((deviValue)*1000)/1000;
     }
 
 }
