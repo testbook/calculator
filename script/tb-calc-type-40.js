@@ -8,15 +8,17 @@ const errorAlertSelector = document.getElementById('errorAlert');
 
 const inputNumberFirst = document.getElementById('inputNumberFirst');
 const inputNumberSecond = document.getElementById('inputNumberSecond');
-const inputNumberThird = document.getElementById('inputNumberThird');
-const inputNumberFourth = document.getElementById('inputNumberFourth');
-const resultBox = document.getElementById('resultBox');
+const resultBoxFirst = document.getElementById('resultBoxFirst');
+const resultBoxSecond = document.getElementById('resultBoxSecond');
+const resultBoxThird = document.getElementById('resultBoxThird');
+const resultBoxFourth = document.getElementById('resultBoxFourth');
+const resultBoxFifth = document.getElementById('resultBoxFifth');
 const errorAlert = document.getElementById('errorAlert');
 const pattern = /.{1}\d|\d|-{1}\d/;
 
 window.onload = function () {
     switch (calcType) {
-        case "greater-than-less-than-fraction-calculator":
+        case "covariance-calculator":
             break;
         default:
             calcEmptyBody.innerHTML = `
@@ -34,32 +36,59 @@ function calculateFun() {
         inputNumberFirst.parentElement.classList.add('has-error');
     }else if(!inputNumberSecond.checkValidity() || !pattern.test(inputNumberSecond.value)){
         inputNumberSecond.parentElement.classList.add('has-error');
-    }else if(!inputNumberThird.checkValidity() || !pattern.test(inputNumberThird.value)){
-        inputNumberThird.parentElement.classList.add('has-error');
-    }else if(!inputNumberFourth.checkValidity() || !pattern.test(inputNumberFourth.value)){
-        inputNumberFourth.parentElement.classList.add('has-error');
-    }
-    else {
-        let p1 = Number(inputNumberFirst.value);
-        let q1 = Number(inputNumberSecond.value);
-        let p2 = Number(inputNumberThird.value);
-        let q2 = Number(inputNumberFourth.value);
-
-        if((p1/q1) > (p2/q2)) {
-            resultBox.value = "YES";
+    }else {
+        let xi = inputNumberFirst.value.split(',').map(toNumber);
+        let yi = inputNumberSecond.value.split(',').map(toNumber);
+        if(xi.length === yi.length){
+            resultBoxThird.value = xi.length || yi.length;
+            resultBoxFirst.value = mean(xi);
+            resultBoxSecond.value = mean(yi);
+            resultBoxFourth.value = covariance(xi, yi, mean(xi), mean(yi)).sample;
+            resultBoxFifth.value = covariance(xi, yi, mean(xi), mean(yi)).population;
         }else {
-            resultBox.value = "NO";
+            errorAlertSelector.innerHTML = "X and Y should have same number of elements";
+            resultBoxFirst.value = "";
+            resultBoxSecond.value = "";
+            resultBoxThird.value = "";
+            resultBoxFourth.value = "";
+            resultBoxFifth.value = "";
         }
-
     }
 
 }
 
+function toNumber(value) {
+    return Number(value);
+}
+
+function mean(values) {
+    let sum = 0;
+    let n = values.length;
+    for(let i = 0; i < values.length; i++) {
+        sum += values[i];
+    }
+    return sum/n;
+}
+
+function covariance(x, y, meanx, meany) {
+    let n = x.length || y.length;
+    let mi = 0;
+
+    for(let i = 0; i < n; i++){
+        mi += (x[i] - meanx) * (y[i] - meany);
+    }
+
+    return {
+        sample: ((mi)/(n-1)).toFixed(2),
+        population: (mi/n).toFixed(2)
+    }
+
+}
+
+
 function onkeyPressFun() {
     inputNumberFirst.parentElement.classList.remove('has-error');
     inputNumberSecond.parentElement.classList.remove('has-error');
-    inputNumberThird.parentElement.classList.remove('has-error');
-    inputNumberFourth.parentElement.classList.remove('has-error');
     errorAlertSelector.innerHTML = '';
     checkEvent(event);
 }
@@ -75,12 +104,6 @@ function checkEvent(event) {
         }else if (inputNumberSecond.value.length == 0) {
             errorAlertSelector.innerHTML = errorAlertText;
             inputNumberSecond.parentElement.classList.add('has-error');
-        }else if (inputNumberThird.value.length == 0) {
-            errorAlertSelector.innerHTML = errorAlertText;
-            inputNumberThird.parentElement.classList.add('has-error');
-        }else if (inputNumberFourth.value.length == 0) {
-            errorAlertSelector.innerHTML = errorAlertText;
-            inputNumberFourth.parentElement.classList.add('has-error');
         }
     }
 }
@@ -88,12 +111,12 @@ function checkEvent(event) {
 function resetFun() {
     inputNumberFirst.parentElement.classList.remove('has-error');
     inputNumberSecond.parentElement.classList.remove('has-error');
-    inputNumberThird.parentElement.classList.remove('has-error');
-    inputNumberFourth.parentElement.classList.remove('has-error');
     inputNumberFirst.value = "";
     inputNumberSecond.value = "";
-    inputNumberThird.value = "";
-    inputNumberFourth.value = "";
     errorAlertSelector.innerHTML = "";
-    resultBox.value = "";
+    resultBoxFirst.value = "";
+    resultBoxSecond.value = "";
+    resultBoxThird.value = "";
+    resultBoxFourth.value = "";
+    resultBoxFifth.value = "";
 }
