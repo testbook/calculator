@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Discount Calculator</h2>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <div class="input-group">
+                    <span class="input-addon">Cost Price (c.p):</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst"
+                        required>
+                </div>
+                <div class="input-group">
+                    <span class="input-addon">Selling Price (s.p):</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond"
+                        required>
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateFun()">Calculate</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <span class="input-addon">Discount (c.p-s.p):</span>
+                    <input type="text" name="resultBoxFirst" disabled value="" id="resultBoxFirst">
+                </div>
+                <div class="input-group">
+                    <span class="input-addon">Discount Percentage:</span>
+                    <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxSecond">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/math.js"></script>
+    <script type="text/javascript" src="./script/tb-calc-type-46.js"></script>
+</body>
+
+</html>
