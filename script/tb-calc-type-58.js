@@ -10,13 +10,15 @@ const inputNumberFirst = document.getElementById('inputNumberFirst');
 const inputNumberSecond = document.getElementById('inputNumberSecond');
 const inputNumberThird = document.getElementById('inputNumberThird');
 const inputNumberFourth = document.getElementById('inputNumberFourth');
+const inputNumberFifth = document.getElementById('inputNumberFifth');
+const inputNumberSixth = document.getElementById('inputNumberSixth');
 
 const resultBox = document.getElementById('resultBox');
 const errorAlert = document.getElementById('errorAlert');
 
 window.onload = function () {
     switch (calcType) {
-        case "gravitational-force-calculator":
+        case "combined-gas-law-calculator":
             break;
         default:
             calcEmptyBody.innerHTML = `
@@ -38,30 +40,42 @@ function calculateFun() {
         inputNumberThird.parentElement.classList.add('has-error');
     }else if (!inputNumberFourth.checkValidity()) {
         inputNumberFourth.parentElement.classList.add('has-error');
+    }else if (!inputNumberFifth.checkValidity()) {
+        inputNumberFifth.parentElement.classList.add('has-error');
+    }else if (!inputNumberSixth.checkValidity()) {
+        inputNumberSixth.parentElement.classList.add('has-error');
     }else {
 
-        let mass1 = inputNumberFirst.value;
-        let mass2 = inputNumberSecond.value;
-        let distance = inputNumberThird.value;
-        let gravitation = inputNumberFourth.value;
-        const G = 6.6743 * 1e-11;
+        let p1 = inputNumberFirst.value;
+        let v1 = inputNumberSecond.value;
+        let t1 = inputNumberThird.value;
+        let p2 = inputNumberFourth.value;
+        let v2 = inputNumberFifth.value;
+        let t2 = inputNumberSixth.value;
+
         let res = 0;
 
-        if (mass1.toLowerCase() === 'x') {
-            res = (gravitation * distance * distance) / (G * mass2);
+        if (p1.toLowerCase() === 'x') {
+            res = (p2 * v2 * t1) / (t2 * v1);
             resultBox.value = res;
-        } else if (mass2.toLowerCase() === 'x') {
-            res = (gravitation * distance * distance) / (G * mass1);
+        } else if (v1.toLowerCase() === 'x') {
+            res = (p2 * v2 * t1) / (t1 * p1);
             resultBox.value = res;
-        } else if (distance.toLowerCase() === 'x') {
-            res = Math.sqrt((G * mass1 * mass2) / gravitation);
+        } else if (t1.toLowerCase() === 'x') {
+            res = (p1 * v1 * t2)/(p2 * v2);
             resultBox.value = res;
-        } else if (gravitation.toLowerCase() === 'x') {
-            res = (G * mass1 * mass2) / Math.pow(distance, 2);
+        } else if (p2.toLowerCase() === 'x') {
+            res = (p1 * v1 * t2)/(t1 * v2);
+            resultBox.value = res;
+        } else if (v2.toLowerCase() === 'x') {
+            res = (p1 * v1 * t2)/(t1 * p2);
+            resultBox.value = res;
+        } else if (t2.toLowerCase() === 'x') {
+            res = (p2 * v2 * t1)/(p1 * v1);
             resultBox.value = res;
         }
         else {
-            alert('pls enter 2 input value and third x');
+            alert('Please input any 3 values and x for unknown value');
         }
     }
 }
@@ -73,6 +87,8 @@ function onkeyPressFun() {
     inputNumberSecond.parentElement.classList.remove('has-error');
     inputNumberThird.parentElement.classList.remove('has-error');
     inputNumberFourth.parentElement.classList.remove('has-error');
+    inputNumberFifth.parentElement.classList.remove('has-error');
+    inputNumberSixth.parentElement.classList.remove('has-error');
     errorAlertSelector.innerHTML = '';
     checkEvent(event);
 }
@@ -98,6 +114,14 @@ function checkEvent(event) {
             errorAlertSelector.innerHTML = errorAlertText;
             inputNumberFourth.parentElement.classList.add('has-error');
         }
+        if (inputNumberFifth.value.length == 0) {
+            errorAlertSelector.innerHTML = errorAlertText;
+            inputNumberFifth.parentElement.classList.add('has-error');
+        }
+        if (inputNumberSixth.value.length == 0) {
+            errorAlertSelector.innerHTML = errorAlertText;
+            inputNumberSixth.parentElement.classList.add('has-error');
+        }
     }
 }
 
@@ -110,6 +134,10 @@ function resetFun() {
     inputNumberThird.value = "";
     inputNumberFourth.parentElement.classList.remove('has-error');
     inputNumberFourth.value = "";
+    inputNumberFifth.parentElement.classList.remove('has-error');
+    inputNumberFifth.value = "";
+    inputNumberSixth.parentElement.classList.remove('has-error');
+    inputNumberSixth.value = "";
     errorAlertSelector.innerHTML = "";
     resultBox.value = "";
 }

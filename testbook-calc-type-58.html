@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+    <style>
+        .input-action {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2> Combined Gas Law Calculator </h2>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <div class="input-flex">
+                    <div class="input-group">
+                        <span class="input-addon"> Enter Pressure 1 (P1) </span>
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst"
+                            required>
+                        <span class="input-addon">atm</span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-addon"> Enter Volume 1 (V1) </span>
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond"
+                            required>
+                        <span class="input-addon">m<sup>3</sup></span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-addon"> Enter Temperature 1 (T1) </span>
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberThird" id="inputNumberThird"
+                            required>
+                        <span class="input-addon">K</span>
+                    </div>
+                </div>
+                <div class="input-flex">
+                    <div class="input-group">
+                        <span class="input-addon"> Enter Pressure 2 (P2) </span>
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFourth" id="inputNumberFourth"
+                            required>
+                        <span class="input-addon">atm</span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-addon"> Enter Volume 2 (V2) </span>
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFifth" id="inputNumberFifth"
+                            required>
+                        <span class="input-addon">m<sup>3</sup></span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-addon"> Enter Temperature (T2) </span>
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSixth" id="inputNumberSixth"
+                            required>
+                        <span class="input-addon">K</span>
+                    </div>
+                </div>
+
+                <div class="input-action">
+                    <button onclick="calculateFun()">Calculate</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div class="input-group">
+                    <span class="input-addon"> X = </span>
+                    <input type="text" name="resultBox" disabled value="" id="resultBox">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/tb-calc-type-58.js"></script>
+</body>
+
+</html>
