@@ -15,7 +15,7 @@ const errorAlert = document.getElementById('errorAlert');
 const pattern = /.{1}\d|\d|-{1}\d|-{1}.{1}\d/;
 
 
-window.onload = function() {
+window.onload = function () {
 
     switch (calcType) {
         case "vertex-calculator":
@@ -42,17 +42,15 @@ function calculateVertex() {
 function calculateFun() {
     if (!inputNumberFirst.checkValidity() || !pattern.test(inputNumberFirst.value)) {
         inputNumberFirst.parentElement.classList.add('has-error');
-    }else if(!inputNumberSecond.checkValidity() || !pattern.test(inputNumberSecond.value)){
+    } else if (!inputNumberSecond.checkValidity() || !pattern.test(inputNumberSecond.value)) {
         inputNumberSecond.parentElement.classList.add('has-error');
-    }else if(!inputNumberThird.checkValidity() || !pattern.test(inputNumberThird.value)){
+    } else if (!inputNumberThird.checkValidity() || !pattern.test(inputNumberThird.value)) {
         inputNumberThird.parentElement.classList.add('has-error');
-    }else{
+    } else {
         calculateVertex();
     }
 
 }
-
-
 
 function onkeyPressFun() {
     inputNumberFirst.parentElement.classList.remove('has-error');
@@ -70,10 +68,10 @@ function checkEvent(event) {
         if (inputNumberFirst.value.length == 0) {
             errorAlertSelector.innerHTML = errorAlertText;
             inputNumberFirst.parentElement.classList.add('has-error');
-        }else if (inputNumberSecond.value.length == 0) {
+        } else if (inputNumberSecond.value.length == 0) {
             errorAlertSelector.innerHTML = errorAlertText;
             inputNumberSecond.parentElement.classList.add('has-error');
-        }else if (inputNumberThird.value.length == 0) {
+        } else if (inputNumberThird.value.length == 0) {
             errorAlertSelector.innerHTML = errorAlertText;
             inputNumberThird.parentElement.classList.add('has-error');
         }
