@@ -309,4 +309,24 @@
         color: white;
         padding: 5px;
     }
+
+    .input-flex{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .input-flex__column{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .input-flex__column > hr{
+        height: 1px;
+        margin: 0;
+        background: black;
+    }
+    .input-flex__column > .input-group{
+        max-width: 160px;
+        margin-bottom: 0;
+    }
     
