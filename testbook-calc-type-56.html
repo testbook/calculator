@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+    <style>
+        .text-help {
+            font-size: 1rem;
+            margin-left: -10px;
+        }
+
+        .input-flex .input-group {
+            margin-bottom: 0;
+        }
+
+        .input-action {
+            justify-content: flex-start;
+            margin-top: 2rem;
+        }
+
+        .max-content {
+            max-width: 400px;
+        }
+
+        .ml--10px {
+            margin-left: -10px;
+        }
+    </style>
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Quadratic Factoring Calculator</h2>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <p>
+                    <em>Quadratic Equation:</em> A x<sup>2</sup> + Bx + C = 0 <br>(Where A, B and C are constants and A≠
+                    0) <br>Enter the coefficients A, B and C <br>A B C
+                </p>
+                <div class="input-flex">
+                    <div class="input-group">
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst"
+                            required>
+                    </div><span class="text-help">x<sup>2</sup> +</span>
+                    <div class="input-group">
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond"
+                            required>
+                    </div>
+                    <span class="text-help">x + </span>
+                    <div class="input-group">
+                        <input onkeypress="onkeyPressFun()" type="text" name="inputNumberThird" id="inputNumberThird"
+                            required>
+                    </div>
+                    <span class="text-help">= 0</span>
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateFun()">Solve</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+
+                <div class="max-content">
+                    <div class="input-group">
+                        <span class="input-addon">Discriminant(D):</span>
+                        <input type="text" name="resultBoxFirst" disabled value="" id="resultBoxFirst">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-addon"> x1=</span>
+                        <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxSecond">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-addon"> x2=</span>
+                        <input type="text" name="resultBoxThird" disabled value="" id="resultBoxThird">
+                    </div>
+                </div>
+                <div class="input-flex">
+                    <span class="text-help" style="margin-left: 0;">Factors are: (x +</span>
+                    <div class="input-group ml--10px">
+                        <input type="text" name="resultBoxFourth" disabled value="" id="resultBoxFourth">
+                    </div>
+                    <span class="text-help">) (x + </span>
+                    <div class="input-group ml--10px">
+                        <input type="text" name="resultBoxFifth" disabled value="" id="resultBoxFifth">
+                    </div><span class="text-help">) = 0</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/tb-calc-type-56.js"></script>
+</body>
+
+</html>
