@@ -40,13 +40,13 @@ window.onload = function () {
 function calculateFun() {
     if (!inputNumberFirst.checkValidity()) {
         inputNumberFirst.parentElement.classList.add('has-error');
-    }else if (!inputNumberSecond.checkValidity()) {
+    } else if (!inputNumberSecond.checkValidity()) {
         inputNumberSecond.parentElement.classList.add('has-error');
-    }else if (!inputNumberThird.checkValidity()) {
+    } else if (!inputNumberThird.checkValidity()) {
         inputNumberThird.parentElement.classList.add('has-error');
-    }else if (!inputNumberFourth.checkValidity()) {
+    } else if (!inputNumberFourth.checkValidity()) {
         inputNumberFourth.parentElement.classList.add('has-error');
-    }else {
+    } else {
         x0 = Number(inputNumberFirst.value);
         y0 = Number(inputNumberSecond.value);
         a = Number(inputNumberThird.value);
@@ -76,38 +76,38 @@ function calculateFun() {
 
 function hyperbola(h, k, a, b) {
     const e = Math.sqrt(1 + (b * b) / (a * a));
-    let focusX = a*e+h;
+    let focusX = a * e + h;
     let focusY = k;
-    let focusCX = (a*e*-1)+h
+    let focusCX = (a * e * -1) + h
     let focusCY = k;
-    let asymptotesAX = Math.abs(b/a);
-    let asymptotesAY = Math.abs((b/a)+k) 
-    let asymptotesBX = Math.abs(b/a*-1);
-    let asymptotesBY = Math.abs((b/a)-k);
-  
+    let asymptotesAX = b / a;
+    let asymptotesAY = Math.abs((b / a) + k)
+    let asymptotesBX = b / a * -1;
+    let asymptotesBY = Math.abs((b / a) - k);
+
     return {
-        eccentricity: e,    
-        focus: { 
-            x: focusX, 
-            y: focusY 
+        eccentricity: e,
+        focus: {
+            x: focusX,
+            y: focusY
         },
-        focusC : { 
-            x: focusCX, 
-            y: focusCY 
+        focusC: {
+            x: focusCX,
+            y: focusCY
         },
-        asymptotes : {
-            a1 : { 
-                x: asymptotesAX, 
-                y: asymptotesAY 
+        asymptotes: {
+            a1: {
+                x: asymptotesAX,
+                y: asymptotesAY
             },
-            a2 : { 
-                x: asymptotesBX, 
+            a2: {
+                x: asymptotesBX,
                 y: asymptotesBY
             }
         }
     };
 }
-  
+
 
 function onkeyPressFun() {
     inputNumberFirst.parentElement.classList.remove('has-error');
