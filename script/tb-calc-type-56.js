@@ -45,12 +45,10 @@ function calculateFun() {
         let b = Number(inputNumberSecond.value);
         let c = Number(inputNumberThird.value);
         let d = ((b * b) - (4 * (a * c)));
-        console.log(d);
         let x1 = (-b + Math.sqrt(d)) / (2 * a);
         let x2 = (-b - Math.sqrt(d)) / (2 * a);
         resultBoxFirst.value = Math.round((d) * 1000) / 1000;
         if (d < 0) {
-
             alert('Roots are imaginary');
             resultBoxSecond.value = x1;
             resultBoxThird.value = x2;
@@ -100,9 +98,7 @@ function resetFun() {
     inputNumberSecond.value = "";
     inputNumberThird.parentElement.classList.remove('has-error');
     inputNumberThird.value = "";
-
     errorAlertSelector.innerHTML = "";
-
     resultBoxFirst.value = "";
     resultBoxSecond.value = "";
     resultBoxThird.value = "";
