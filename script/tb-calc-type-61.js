@@ -75,15 +75,32 @@ function calculateFun() {
 }
 
 function hyperbola(h, k, a, b) {
-    const e = Math.sqrt(1 + (b * b) / (a * a));
-    let focusX = a * e + h;
+    let e = Math.sqrt(1 + (b * b) / (a * a));
+
+    let m = b/a;
+    let distanceFromCenter = Math.sqrt( a * a + b * b );
+    let focusX = h + distanceFromCenter;
     let focusY = k;
-    let focusCX = (a * e * -1) + h
+
+    let focusCX = h - distanceFromCenter;
     let focusCY = k;
-    let asymptotesAX = b / a;
-    let asymptotesAY = Math.abs((b / a) + k)
-    let asymptotesBX = b / a * -1;
-    let asymptotesBY = Math.abs((b / a) - k);
+
+
+    const line1 = [m, k - m * h];
+    // Find the equation of the perpendicular bisector of the line connecting the focus points
+    const midpoint = [(focusX + focusCX) / 2, (focusY + focusCY) / 2];
+    const slope = -1 / m;
+    const line2 = [slope, midpoint[1] - slope * midpoint[0]];
+    // Find the intersection point of the two lines to get the center of the hyperbola
+    const x = (line2[1] - line1[1]) / (line1[0] - line2[0]);
+    const y = line1[0] * x + line1[1];
+    const center = [x, y];
+    // Find the slope of the asymptotes
+    const slope1 = b / a;
+    const slope2 = -b / a;
+    // Find the y-intercepts of the asymptotes
+    const yInt1 = center[1] - slope1 * center[0];
+    const yInt2 = center[1] - slope2 * center[0];
 
     return {
         eccentricity: e,
@@ -97,12 +114,12 @@ function hyperbola(h, k, a, b) {
         },
         asymptotes: {
             a1: {
-                x: asymptotesAX,
-                y: asymptotesAY
+                x: slope2,
+                y: yInt2
             },
             a2: {
-                x: asymptotesBX,
-                y: asymptotesBY
+                x: slope1,
+                y: yInt1
             }
         }
     };
