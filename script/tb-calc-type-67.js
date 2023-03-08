@@ -22,22 +22,32 @@ const numWords = [
     "Thirteen",
     "Fourteen",
     "Fifteen",
+    "Sixteen",
+    "Seventeen",
+    "Eighteen",
+    "Ninteen",
+    "Twenty"
 ];
 
 const inputAddons = [
-    { prefix: "1", suffix: "11" },
-    { prefix: "2", suffix: "22" },
-    { prefix: "3", suffix: "33" },
-    { prefix: "4", suffix: "44" },
-    { prefix: "5", suffix: "55" },
+    { prefix: "", suffix: "x" },
+    { prefix: "", suffix: "y" },
+    { prefix: "", suffix: "z" },
+    { prefix: "", suffix: "" },
+    { prefix: "", suffix: "x" },
+    { prefix: "", suffix: "y" },
+    { prefix: "", suffix: "z" },
+    { prefix: "", suffix: "" },
+    { prefix: "", suffix: "x" },
+    { prefix: "", suffix: "y" },
+    { prefix: "", suffix: "z" },
+    { prefix: "", suffix: "" },
 ];
 
 const resultAddons = [
-    { prefix: "", suffix: "Kg" },
-    { prefix: "X", suffix: "" },
-    { prefix: "", suffix: "" },
-    { prefix: "", suffix: "" },
-    { prefix: "", suffix: "" },
+    { prefix: "X = ", suffix: "" },
+    { prefix: "Y = ", suffix: "" },
+    { prefix: "Z = ", suffix: "" },
 ];
 
 const inputSIZE = 5;
@@ -49,8 +59,8 @@ const pattern = /.{1}\d|\d|-{1}\d/;
 window.onload = function () {
     switch (calcType) {
         case "system-of-equations-calculator":
-            dynamicInputs(inputSIZE, inputAddons, 'input');
-            dynamicInputs(resultSIZE, resultAddons, 'result');
+            inputGenerator();
+            resultBoxGenerator();
             break;
         default:
             calcEmptyBody.innerHTML = `
@@ -61,71 +71,89 @@ window.onload = function () {
     }
 };
 
+function inputGenerator() {
 
-function dynamicInputs(inputLength, inputLabels, isInputResult) {
-    if(inputLabels.length === inputLength) {
-        if (isInputResult === 'input') {
-            let inputsDiv = document.getElementById("inputs");
-            for (let i = 0; i < inputLength; i++) {
-                let inputParent = document.createElement("div");
-                inputParent.className = "input-group";
-    
-                let inputAddonPrefix = document.createElement("span");
-                let inputAddonSuffix = document.createElement("span");
-    
-                if (inputLabels[i].prefix != "") {
-                    inputAddonPrefix.className = "input-addon";
-                    inputAddonPrefix.innerHTML = inputLabels[i].prefix;
-                }
-                if (inputLabels[i].suffix != "") {
-                    inputAddonSuffix.className = "input-addon";
-                    inputAddonSuffix.innerHTML = inputLabels[i].suffix;
-                }
-    
-                let inputBox = document.createElement("input");
-                inputBox.type = "text";
-                inputBox.name = `inputNumber${numWords[i]}`;
-                inputBox.id = inputBox.name;
-                inputBox.onkeydown = onkeyPressFun();
-                inputBox.required = true;
-    
-                inputParent.appendChild(inputAddonPrefix);
-                inputParent.appendChild(inputBox);
-                inputParent.appendChild(inputAddonSuffix);
-                inputsDiv.appendChild(inputParent);
+    let inputs = document.querySelectorAll('#parentDiv #inputs');
+    let req = [];
+
+    for (let i = 0; i < inputs.length; i++) {
+        req.push(Number(inputs[i].getAttribute("reqd-inputs")));
+    }
+
+    for (let i = 0; i < req.length; i++) {
+        dynamicInputs(req[i], inputAddons, 'input', inputs[i]);
+    }
+}
+
+function resultBoxGenerator() {
+    let resultBox = document.querySelectorAll('#parentDiv #result');
+    let req = [];
+
+    for (let i = 0; i < resultBox.length; i++) {
+        req.push(Number(resultBox[i].getAttribute("reqd-inputs")));
+    }
+
+    for (let i = 0; i < req.length; i++) {
+        dynamicInputs(req[i], resultAddons, 'result', resultBox[i]);
+    }
+}
+
+function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
+    if (isInputResult === 'input') {
+        for (let i = 0; i < inputLength; i++) {
+            let inputParent = document.createElement("div");
+            inputParent.className = "input-group";
+            let inputAddonPrefix = document.createElement("span");
+            let inputAddonSuffix = document.createElement("span");
+            if (inputLabels[i].prefix != "") {
+                inputAddonPrefix.className = "input-addon";
+                inputAddonPrefix.innerHTML = inputLabels[i].prefix;
             }
-        } else if (isInputResult === 'result') {
-            let resultDiv = document.getElementById("result");
-            for (let i = 0; i < inputLength; i++) {
-                let resultParent = document.createElement("div");
-                resultParent.className = "input-group";
-    
-                let resultAddonPrefix = document.createElement("span");
-                let resultAddonSuffix = document.createElement("span");
-    
-                if (inputLabels[i].prefix != "") {
-                    resultAddonPrefix.className = "input-addon";
-                    resultAddonPrefix.innerHTML = inputLabels[i].prefix;
-                }
-                if (inputLabels[i].suffix != "") {
-                    resultAddonSuffix.className = "input-addon";
-                    resultAddonSuffix.innerHTML = inputLabels[i].suffix;
-                }
-    
-                let resultBox = document.createElement("input");
-                resultBox.type = "text";
-                resultBox.name = `resultBox${numWords[i]}`;
-                resultBox.id = resultBox.name;
-                resultBox.required = true;
-    
-                resultParent.appendChild(resultAddonPrefix);
-                resultParent.appendChild(resultBox);
-                resultParent.appendChild(resultAddonSuffix);
-                resultDiv.appendChild(resultParent);
+            if (inputLabels[i].suffix != "") {
+                inputAddonSuffix.className = "input-addon";
+                inputAddonSuffix.innerHTML = inputLabels[i].suffix;
             }
+            let inputBox = document.createElement("input");
+            inputBox.type = "text";
+            inputBox.name = `inputNumber${numWords[i]}`;
+            inputBox.id = inputBox.name;
+            inputBox.onkeydown = onkeyPressFun();
+            inputBox.required = true;
+            inputParent.appendChild(inputAddonPrefix);
+            inputParent.appendChild(inputBox);
+            inputParent.appendChild(inputAddonSuffix);
+            attatchTo.appendChild(inputParent);
         }
-    }else {
-        console.error("Error: length of inputs and prefexies does not match");
+
+    } else if (isInputResult === 'result') {
+        let resultDiv = document.getElementById("result");
+        for (let i = 0; i < inputLength; i++) {
+            let resultParent = document.createElement("div");
+            resultParent.className = "input-group";
+
+            let resultAddonPrefix = document.createElement("span");
+            let resultAddonSuffix = document.createElement("span");
+
+            if (inputLabels[i].prefix != "") {
+                resultAddonPrefix.className = "input-addon";
+                resultAddonPrefix.innerHTML = inputLabels[i].prefix;
+            }
+            if (inputLabels[i].suffix != "") {
+                resultAddonSuffix.className = "input-addon";
+                resultAddonSuffix.innerHTML = inputLabels[i].suffix;
+            }
+
+            let resultBox = document.createElement("input");
+            resultBox.type = "text";
+            resultBox.name = `resultBox${numWords[i]}`;
+            resultBox.id = resultBox.name;
+            resultBox.required = true;
+
+            resultParent.appendChild(resultAddonPrefix);
+            resultParent.appendChild(resultBox);
+            resultParent.appendChild(resultAddonSuffix);
+            resultDiv.appendChild(resultParent);
+        }
     }
 }
 
