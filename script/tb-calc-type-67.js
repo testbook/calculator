@@ -52,6 +52,8 @@ const resultAddons = [
 
 const inputSIZE = 5;
 const resultSIZE = 5;
+var inputCount = 0;
+var resultCount = 0;
 
 const errorAlert = document.getElementById("errorAlert");
 const pattern = /.{1}\d|\d|-{1}\d/;
@@ -83,6 +85,18 @@ function inputGenerator() {
     for (let i = 0; i < req.length; i++) {
         dynamicInputs(req[i], inputAddons, 'input', inputs[i]);
     }
+
+    addBeforeInputs('+', document.getElementById("inputNumberSecond"));
+    addBeforeInputs('+', document.getElementById("inputNumberThird"));
+    addBeforeInputs('=', document.getElementById("inputNumberFourth"));
+    
+    addBeforeInputs('+', document.getElementById("inputNumberSixth"));
+    addBeforeInputs('+', document.getElementById("inputNumberSeventh"));
+    addBeforeInputs('=', document.getElementById("inputNumberEighth"));
+    
+    addBeforeInputs('+', document.getElementById("inputNumberTenth"));
+    addBeforeInputs('+', document.getElementById("inputNumberEleventh"));
+    addBeforeInputs('=', document.getElementById("inputNumberTwelve"));
 }
 
 function resultBoxGenerator() {
@@ -105,17 +119,17 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
             inputParent.className = "input-group";
             let inputAddonPrefix = document.createElement("span");
             let inputAddonSuffix = document.createElement("span");
-            if (inputLabels[i].prefix != "") {
+            if (inputLabels[inputCount].prefix != "") {
                 inputAddonPrefix.className = "input-addon";
-                inputAddonPrefix.innerHTML = inputLabels[i].prefix;
+                inputAddonPrefix.innerHTML = inputLabels[inputCount].prefix;
             }
-            if (inputLabels[i].suffix != "") {
+            if (inputLabels[inputCount].suffix != "") {
                 inputAddonSuffix.className = "input-addon";
-                inputAddonSuffix.innerHTML = inputLabels[i].suffix;
+                inputAddonSuffix.innerHTML = inputLabels[inputCount].suffix;
             }
             let inputBox = document.createElement("input");
             inputBox.type = "text";
-            inputBox.name = `inputNumber${numWords[i]}`;
+            inputBox.name = `inputNumber${numWords[inputCount]}`;
             inputBox.id = inputBox.name;
             inputBox.onkeydown = onkeyPressFun();
             inputBox.required = true;
@@ -123,6 +137,7 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
             inputParent.appendChild(inputBox);
             inputParent.appendChild(inputAddonSuffix);
             attatchTo.appendChild(inputParent);
+            inputCount++;
         }
 
     } else if (isInputResult === 'result') {
@@ -134,13 +149,13 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
             let resultAddonPrefix = document.createElement("span");
             let resultAddonSuffix = document.createElement("span");
 
-            if (inputLabels[i].prefix != "") {
+            if (inputLabels[resultCount].prefix != "") {
                 resultAddonPrefix.className = "input-addon";
-                resultAddonPrefix.innerHTML = inputLabels[i].prefix;
+                resultAddonPrefix.innerHTML = inputLabels[resultCount].prefix;
             }
-            if (inputLabels[i].suffix != "") {
+            if (inputLabels[resultCount].suffix != "") {
                 resultAddonSuffix.className = "input-addon";
-                resultAddonSuffix.innerHTML = inputLabels[i].suffix;
+                resultAddonSuffix.innerHTML = inputLabels[resultCount].suffix;
             }
 
             let resultBox = document.createElement("input");
@@ -153,6 +168,7 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
             resultParent.appendChild(resultBox);
             resultParent.appendChild(resultAddonSuffix);
             resultDiv.appendChild(resultParent);
+            resultCount++;
         }
     }
 }
@@ -171,7 +187,7 @@ function calculateFun() {
     }
     if(status === true) {
         // add logic
-        console.log("Hello");
+
     }
 
 }
@@ -224,4 +240,13 @@ function resetFun() {
         }
     }
     errorAlertSelector.innerHTML = "";
+}
+
+function addBeforeInputs(innerHTML, nodeAfter){
+    let spanText = document.createElement("span");
+    spanText.classList.add("mb-1");
+    let nodeParent = nodeAfter.parentNode;
+    let NodeSuperParent = nodeParent.parentNode
+    spanText.innerHTML = innerHTML;
+    NodeSuperParent.insertBefore(spanText, nodeParent);
 }
