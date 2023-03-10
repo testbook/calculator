@@ -170,7 +170,7 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
             resultBox.type = "text";
             resultBox.name = `resultBox${numWords[resultCount]}`;
             resultBox.id = resultBox.name;
-            resultBox.required = true;
+            resultBox.disabled = true;
 
             resultParent.appendChild(resultAddonPrefix);
             resultParent.appendChild(resultBox);
