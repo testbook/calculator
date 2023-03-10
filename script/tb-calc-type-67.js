@@ -50,6 +50,25 @@ const resultAddons = [
     { prefix: "Z = ", suffix: "" },
 ];
 
+const inputSpans = [
+    '',
+    '+',
+    '+',
+    '=',
+    '',
+    '+',
+    '+',
+    '=',
+    '',
+    '+',
+    '+',
+    '=',
+]
+
+const resultSpans = [
+];
+
+
 const inputSIZE = 5;
 const resultSIZE = 5;
 var inputCount = 0;
@@ -85,18 +104,6 @@ function inputGenerator() {
     for (let i = 0; i < req.length; i++) {
         dynamicInputs(req[i], inputAddons, 'input', inputs[i]);
     }
-
-    addBeforeInputs('+', document.getElementById("inputNumberSecond"));
-    addBeforeInputs('+', document.getElementById("inputNumberThird"));
-    addBeforeInputs('=', document.getElementById("inputNumberFourth"));
-    
-    addBeforeInputs('+', document.getElementById("inputNumberSixth"));
-    addBeforeInputs('+', document.getElementById("inputNumberSeventh"));
-    addBeforeInputs('=', document.getElementById("inputNumberEighth"));
-    
-    addBeforeInputs('+', document.getElementById("inputNumberTenth"));
-    addBeforeInputs('+', document.getElementById("inputNumberEleventh"));
-    addBeforeInputs('=', document.getElementById("inputNumberTwelve"));
 }
 
 function resultBoxGenerator() {
@@ -137,6 +144,7 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
             inputParent.appendChild(inputBox);
             inputParent.appendChild(inputAddonSuffix);
             attatchTo.appendChild(inputParent);
+            addBeforeInputs(inputSpans[i], document.getElementById(`inputNumber${numWords[inputCount]}`));
             inputCount++;
         }
 
@@ -160,7 +168,7 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
 
             let resultBox = document.createElement("input");
             resultBox.type = "text";
-            resultBox.name = `resultBox${numWords[i]}`;
+            resultBox.name = `resultBox${numWords[resultCount]}`;
             resultBox.id = resultBox.name;
             resultBox.required = true;
 
@@ -243,10 +251,12 @@ function resetFun() {
 }
 
 function addBeforeInputs(innerHTML, nodeAfter){
-    let spanText = document.createElement("span");
-    spanText.classList.add("mb-1");
-    let nodeParent = nodeAfter.parentNode;
-    let NodeSuperParent = nodeParent.parentNode
-    spanText.innerHTML = innerHTML;
-    NodeSuperParent.insertBefore(spanText, nodeParent);
+    if(innerHTML != undefined){
+        let spanText = document.createElement("span");
+        spanText.classList.add("mb-1");
+        let nodeParent = nodeAfter.parentNode;
+        let NodeSuperParent = nodeParent.parentNode
+        spanText.innerHTML = innerHTML;
+        NodeSuperParent.insertBefore(spanText, nodeParent);
+    }
 }
