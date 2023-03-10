@@ -194,8 +194,13 @@ function calculateFun() {
         }
     }
     if(status === true) {
-        // add logic
+        let inputVars = []
+        for (let i = 0; i < inputCount; i++) {
+            let inputVar = document.getElementById(`inputNumber${numWords[i]}`).value;
+            inputVars.push(inputVar);
+        }
 
+        
     }
 
 }
