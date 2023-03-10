@@ -69,8 +69,8 @@ const resultSpans = [
 ];
 
 
-const inputSIZE = 5;
-const resultSIZE = 5;
+const inputSIZE = 12;
+const resultSIZE = 3;
 var inputCount = 0;
 var resultCount = 0;
 
