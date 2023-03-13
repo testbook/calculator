@@ -30,26 +30,29 @@ const numWords = [
 ];
 
 const inputAddons = [
-    { prefix: "", suffix: "x" },
-    { prefix: "", suffix: "y" },
-    { prefix: "", suffix: "" },
-    { prefix: "", suffix: "x" },
-    { prefix: "", suffix: "y" },
-    { prefix: "", suffix: "" },
+    { prefix: "Number of possible outcomes:", suffix: "" },
+    { prefix: "Number of event occurs in X:", suffix: "" },
+    { prefix: "Number of event occurs in Y:", suffix: "" },
 ];
 
 const resultAddons = [
-    { prefix: "X = ", suffix: "" },
-    { prefix: "Y = ", suffix: "" },
+    { prefix: "P(X)", suffix: "" },
+    { prefix: "P(X')", suffix: "" },
+    { prefix: "P(Y)", suffix: "" },
+    { prefix: "P(Y')", suffix: "" },
+    { prefix: "P(X ∩ Y)", suffix: "" },
+    { prefix: "P(X U Y)", suffix: "" },
+    { prefix: "P(X/Y)", suffix: "" },
+    { prefix: "P(Y/X)", suffix: "" },
 ];
 
 const inputSpans = [
     '',
-    '+',
-    '=',
     '',
-    '+',
-    '=',
+    '',
+    '',
+    '',
+    '',
 ]
 
 const resultSpans = [
@@ -66,7 +69,7 @@ const pattern = /.{1}\d|\d|-{1}\d/;
 
 window.onload = function () {
     switch (calcType) {
-        case "point-of-intersection-calculator":
+        case "probability-calculator":
             inputGenerator();
             resultBoxGenerator();
             break;
@@ -186,35 +189,32 @@ function calculateFun() {
             inputVars.push(Number(inputVar));
         }
 
-        eq1 = [inputVars[0], inputVars[1], -inputVars[2]];
-        eq2 = [inputVars[3], inputVars[4], -inputVars[5]];
+        let N = inputVars[0];
+        let x = inputVars[1];
+        let y = inputVars[2];
 
-        let res = solveSystemOfEquations(eq1, eq2);
+        let px = x/N;
+        let py = y/N;
+        let pxb = 1 - px;
+        let pyb = 1 - py;
+        let pAb = (px * py).toFixed(3);
+        let pUb = px + py - pAb;
+        let pxy = pAb / px;
+        let pyx = pAb / py;
 
-        resultBoxFirst.value = res[0];
-        resultBoxSecond.value = res[1];
+        resultBoxFirst.value = px;
+        resultBoxSecond.value = pxb;
+        resultBoxThird.value = py;
+        resultBoxFourth.value = pyb;
+        resultBoxFifth.value = pAb;
+        resultBoxSixth.value = pUb;
+        resultBoxSeventh.value = pxy;
+        resultBoxEighth.value = pyx;
+
     }
 
 }
-function findDeterminant(eq1, eq2) {
-    const [a1, b1, c1] = eq1;
-    const [a2, b2, c2] = eq2;
 
-    let obj = {
-        x: ((b1*c2) - (b2*c1))/((a1*b2) - (a2*b1)),
-        y: ((a2*c1) - (a1*c2))/((a1*b2) - (a2*b1))
-    }
-
-    return obj;
-}
-
-
-function solveSystemOfEquations(eq1, eq2) {
-    
-    let {x, y} = findDeterminant(eq1, eq2);
-    
-    return [x, y];
-}  
 
 function onkeyPressFun() {
     let n = inputSIZE;

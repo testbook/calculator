@@ -149,7 +149,6 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
         }
 
     } else if (isInputResult === 'result') {
-        let resultDiv = document.getElementById("result");
         for (let i = 0; i < inputLength; i++) {
             let resultParent = document.createElement("div");
             resultParent.className = "input-group";
@@ -175,7 +174,7 @@ function dynamicInputs(inputLength, inputLabels, isInputResult, attatchTo) {
             resultParent.appendChild(resultAddonPrefix);
             resultParent.appendChild(resultBox);
             resultParent.appendChild(resultAddonSuffix);
-            resultDiv.appendChild(resultParent);
+            attatchTo.appendChild(resultParent);
             resultCount++;
         }
     }
