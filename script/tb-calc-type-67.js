@@ -197,13 +197,80 @@ function calculateFun() {
         let inputVars = []
         for (let i = 0; i < inputCount; i++) {
             let inputVar = document.getElementById(`inputNumber${numWords[i]}`).value;
-            inputVars.push(inputVar);
+            inputVars.push(Number(inputVar));
         }
 
-        
+        let eq1 = [inputVars[0], inputVars[1], inputVars[2], inputVars[3]];
+        let eq2 = [inputVars[4], inputVars[5], inputVars[6], inputVars[7]];
+        let eq3 = [inputVars[8], inputVars[9], inputVars[10], inputVars[11]];
+
+        let res = solveSystemOfEquations(eq1, eq2, eq3);
+        resultBoxFirst.value = res[0];
+        resultBoxSecond.value = res[1];
+        resultBoxThird.value = res[2];
     }
 
 }
+function findDeterminant(eq1, eq2, eq3) {
+    const [a1, b1, c1] = eq1;
+    const [a2, b2, c2] = eq2;
+    const [a3, b3, c3] = eq3;
+
+    return a1*((b2 * c3) - (b3*c2)) - b1 * ((a2*c3) - (a3*c2)) + c1 * ((a2 * b3) - (a3*b2));
+
+}
+
+function findD(eq1, eq2, eq3) {
+    let a = [eq1[0], eq1[1], eq1[2]];
+    let b = [eq2[0], eq2[1], eq2[2]];
+    let c = [eq3[0], eq3[1], eq3[2]];
+
+    return findDeterminant(a, b, c);
+}
+
+function findDx(eq1, eq2, eq3) {
+    let a = [eq1[3], eq1[1], eq1[2]];
+    let b = [eq2[3], eq2[1], eq2[2]];
+    let c = [eq3[3], eq3[1], eq3[2]];
+
+    return findDeterminant(a, b, c);
+}
+
+function findDy(eq1, eq2, eq3) {
+    let a = [eq1[0], eq1[3], eq1[2]];
+    let b = [eq2[0], eq2[3], eq2[2]];
+    let c = [eq3[0], eq3[3], eq3[2]];
+
+    return findDeterminant(a, b, c);
+}
+
+function findDz(eq1, eq2, eq3) {
+    let a = [eq1[0], eq1[1], eq1[3]];
+    let b = [eq2[0], eq2[1], eq2[3]];
+    let c = [eq3[0], eq3[1], eq3[3]];
+
+    return findDeterminant(a, b, c);
+}
+
+function solveSystemOfEquations(eq1, eq2, eq3) {
+    // Parse the coefficients and constants from the equations
+    let d = findD(eq1, eq2, eq3);
+    let dx = findDx(eq1, eq2, eq3);
+    let dy = findDy(eq1, eq2, eq3);
+    let dz = findDz(eq1, eq2, eq3);
+
+    console.log(eq1, eq2, eq3);
+    console.log(d);
+    console.log(dx);
+    console.log(dy);
+    console.log(dz);
+    
+    const x = dx / d;
+    const y = dy / d;
+    const z = dz / d;
+  
+    return [x, y, z];
+}  
 
 function onkeyPressFun() {
     let n = inputSIZE;
