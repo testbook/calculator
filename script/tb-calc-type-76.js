@@ -30,10 +30,10 @@ const numWords = [
 ];
 
 const inputAddons = [
-    { prefix: "Heat Energy (H) :", suffix: "Joules" },
-    { prefix: "Mass (m) :", suffix: "\ Kg" },
-    { prefix: "Change in Temperature (Δ T) :", suffix: "°C" },
-    { prefix: "Specific Heat Cp :", suffix: "J/kg * degrees C" },
+    { prefix: `Initial Vertical Velocity (V${"y0".sub()}) `, suffix: "m/s" },
+    { prefix: "Acceleration of Gravity (g) ", suffix: `m/s${"2".sup()}` },
+    { prefix: "Time (t) :", suffix: "s" },
+    { prefix: `Vertical Velocity at Time (V${"y".sub()})  `, suffix: "m/s" },
 ];
 
 const resultAddons = [
@@ -63,7 +63,7 @@ const pattern = /.{1}\d|\d|-{1}\d/;
 
 window.onload = function () {
     switch (calcType) {
-        case "heat-calculator":
+        case "projectile-motion-for-vertical-velocity-calculator":
             inputGenerator();
             resultBoxGenerator();
             break;
@@ -183,19 +183,24 @@ function calculateFun() {
             inputVars.push(inputVar);
         }
 
-        let h = inputVars[0];
-        let m = inputVars[1];
+        let vy0 = inputVars[0];
+        let g = inputVars[1];
         let t = inputVars[2];
-        let cp = inputVars[3];
+        let vy = inputVars[3];
+        let gt = g * t;
 
-        if(h.toLowerCase() === 'x') {
-            resultBoxFirst.value = m * t * cp;
-        }else if(m.toLowerCase() === 'x') {
-            resultBoxFirst.value = h / (cp * t);
+        if(vy0.toLowerCase() === 'x') {
+            let res = Number(vy) + Number(gt);
+            resultBoxFirst.value = res;
+        }else if(g.toLowerCase() === 'x') {
+            let res = (Number(vy0) - Number(vy)) / Number(t)
+            resultBoxFirst.value = res;
         }else if(t.toLowerCase() === 'x') {
-            resultBoxFirst.value = h / (cp * m);
-        }else if(cp.toLowerCase() === 'x') {
-            resultBoxFirst.value = h / (m * t);
+            let res = (Number(vy0) - Number(vy)) / Number(g)
+            resultBoxFirst.value = res;
+        }else if(vy.toLowerCase() === 'x') {
+            let res = Number(vy0) - Number(gt);
+            resultBoxFirst.value = res;
         }else {
             alert('Have you entered all the values? Please put x for one box. This is the value which will be calculated');
         }

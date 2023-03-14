@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+    <style>
+        .input-flex {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Heat Calculator</h2>
+            <span>V<sub>y</sub> = V<sub>y0</sub> - gt</span>
+            <br>
+            <span>Enter unknown value as “x”</span>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div id="parentDiv">
+                <div id="inputs" reqd-inputs="4"></div>
+                <div class="input-action">
+                    <button onclick="calculateFun()">Calculate</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div id="result" reqd-inputs="1"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/tb-calc-type-76.js"></script>
+</body>
+
+</html>
