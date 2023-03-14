@@ -30,14 +30,17 @@ const numWords = [
 ];
 
 const inputAddons = [
-    { prefix: "Heat Energy (H) :", suffix: "Joules" },
-    { prefix: "Mass (m) :", suffix: "\ Kg" },
-    { prefix: "Change in Temperature (Δ T) :", suffix: "°C" },
-    { prefix: "Specific Heat Cp :", suffix: "J/kg * degrees C" },
+    { prefix: "X1", suffix: "" },
+    { prefix: "Y1", suffix: "" },
+    { prefix: "X2", suffix: "" },
+    { prefix: "Y2", suffix: "" },
+    { prefix: "X3", suffix: "" },
+    { prefix: "Y3", suffix: "" },
 ];
 
 const resultAddons = [
-    { prefix: "X = ", suffix: "" },
+    { prefix: "centroid (X)", suffix: "" },
+    { prefix: "centroid (X)", suffix: "" },
 ];
 
 const inputSpans = [
@@ -180,27 +183,11 @@ function calculateFun() {
         let inputVars = []
         for (let i = 0; i < inputCount; i++) {
             let inputVar = document.getElementById(`inputNumber${numWords[i]}`).value;
-            inputVars.push(inputVar);
+            inputVars.push(Number(inputVar));
         }
 
-        let h = inputVars[0];
-        let m = inputVars[1];
-        let t = inputVars[2];
-        let cp = inputVars[3];
-
-        console.log(h, m, t, cp);
-
-        if(h.toLowerCase() === 'x') {
-            resultBoxFirst.value = m * t * cp;
-        }else if(m.toLowerCase() === 'x') {
-            resultBoxFirst.value = h / (cp * t);
-        }else if(t.toLowerCase() === 'x') {
-            resultBoxFirst.value = h / (cp * m);
-        }else if(cp.toLowerCase() === 'x') {
-            resultBoxFirst.value = h / (m * t);
-        }else {
-            alert('Have you entered all the values? Please put x for one box. This is the value which will be calculated');
-        }
+        resultBoxFirst.value = ((inputVars[0] + inputVars[2] + inputVars[4]) / 3).toFixed(3);
+        resultBoxSecond.value = ((inputVars[1] + inputVars[3] + inputVars[5]) / 3).toFixed(3);
 
     }
 

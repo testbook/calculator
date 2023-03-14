@@ -16,23 +16,20 @@
 <body class="calc-page">
     <div class="card card--center">
         <div class="card__header">
-            <h2>Probability Calculator</h2>
-            <span>Multiple Event Probability (X & Y are independent)</span>
+            <h2>Centroid Calculator</h2>
+            <span>Enter Coordinates (x1 , y1) , (x2 , y2) , (x3 , y3)</span>
         </div>
         <div id="errorAlert"></div>
         <div class="card__body card__body--flex-row" id="cardBody">
             <div id="parentDiv">
-                <div id="inputs" reqd-inputs="1"></div>
-                <div id="inputs" reqd-inputs="1"></div>
-                <div id="inputs" reqd-inputs="1"></div>
-                <div id="inputs" reqd-inputs="1"></div>
+                <div id="inputs" reqd-inputs="6"></div>
                 <div class="input-action">
                     <button onclick="calculateFun()">Calculate</button>
                     <div onclick="resetFun()" class="input-reset">
                         <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
                     </div>
                 </div>
-                <div id="result" reqd-inputs="1"></div>
+                <div id="result" reqd-inputs="2"></div>
             </div>
         </div>
     </div>
