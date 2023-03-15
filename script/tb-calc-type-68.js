@@ -67,6 +67,12 @@ const pattern = /.{1}\d|\d|-{1}\d/;
 window.onload = function () {
     switch (calcType) {
         case "point-of-intersection-calculator":
+            document.getElementById("title").innerHTML = "Point of Intersection Calculator";
+            inputGenerator();
+            resultBoxGenerator();
+            break;
+            case "simultaneous-equations-calculator":
+            document.getElementById("title").innerHTML = "Simultaneous Equations Calculator";
             inputGenerator();
             resultBoxGenerator();
             break;
