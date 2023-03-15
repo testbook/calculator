@@ -183,10 +183,18 @@ function calculateFun() {
             let inputVar = document.getElementById(`inputNumber${numWords[i]}`).value;
             inputVars.push(Number(inputVar));
         }
+
+        let [mixp, p, q] = inputVars;
+
+        let res = q * mixp + p;
+
+        resultBoxFirst.value = res;
+        resultBoxSecond.value = q ;
          
 
     }
 }
+
 
 function onkeyPressFun() {
     let n = inputSIZE;
