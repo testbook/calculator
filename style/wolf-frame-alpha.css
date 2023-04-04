@@ -121,6 +121,7 @@ table.WolframAlphaWidget input[type="checkbox"],
 }
 
 .wolframAlphaWidgetContent tr.modal-position:last-child{
+  position: static !important;
     display: block !important;
     margin-left: 100px !important;
 }
