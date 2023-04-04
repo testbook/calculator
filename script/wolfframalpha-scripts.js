@@ -33,6 +33,7 @@ window.onload = function() {
         console.log('readt;');   
         submitBtn.addEventListener('click', () => {
             body.classList.remove('card__centered');
+            document.querySelector("table .submit tbody tr").classList.add('modal-position');
         })
     }, 2000)
 

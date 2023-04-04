@@ -2,7 +2,6 @@
 
 * {
     font-size: 1rem !important;
-    background: white;
 }
 
 /* header */
@@ -47,7 +46,7 @@ table.WolframAlphaWidget tr.wawf_bot td {
 /* common elements - form stuff */
 table.WolframAlphaWidget .submit .l,
 .WolframAlphaWidgetLarge .wolframAlphaWidgetContent .submit .l {
-  display: none;
+  display: none !important;
 }
 
 table.WolframAlphaWidget .submit .m,
@@ -63,7 +62,7 @@ table.WolframAlphaWidget .submit .m,
 
 table.WolframAlphaWidget .submit .r,
 .WolframAlphaWidgetLarge .wolframAlphaWidgetContent .submit .r {
-  display: none;
+  display: none !important;
 }
 
 /* all inputs */
@@ -118,7 +117,12 @@ table.WolframAlphaWidget input[type="checkbox"],
 .wolframAlphaWidgetContent tr:last-child{
     position: absolute !important;
     left: 45% !important;
-    margin-top: .75rem !important;
+    margin-top: .75rem !important; 
+}
+
+.wolframAlphaWidgetContent tr.modal-position:last-child{
+    display: block !important;
+    margin-left: 100px !important;
 }
 
 #wolframAlphaWidget7940 .wolframAlphaWidgetContent tr:last-child{
