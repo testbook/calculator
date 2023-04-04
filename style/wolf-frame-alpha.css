@@ -15,6 +15,12 @@ table.WolframAlphaWidget tr th {
     margin-bottom: 1rem !important;
     font-size: 1.5rem !important;
 }
+@media screen and (max-width: 768px) {
+  table.WolframAlphaWidget tr th {
+    font-size: 1rem !important;
+  }
+}
+
 .wolframAlphaWidgetBeta{
     display: none !important;
 }
