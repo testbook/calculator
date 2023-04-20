@@ -33,10 +33,14 @@ const inputAddons = [
     { prefix: "Current Salary", suffix: "₹" },
     { prefix: "Hike percentage", suffix: "%" },
     { prefix: "Updated Salary", suffix: "₹" },
+    { prefix: "", suffix: "₹" },
+    { prefix: "", suffix: "₹" },
 ];
 
 const resultAddons = [
     { prefix: "Value of x ", suffix: "" },
+    { prefix: "", suffix: "" },
+    { prefix: "", suffix: "" },
 ];
 
 const inputSpans = [
@@ -48,7 +52,7 @@ const inputSpans = [
 const resultSpans = [
     '',
     '',
-    ''
+    '',
 ];
 
 
