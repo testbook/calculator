@@ -30,11 +30,9 @@ const numWords = [
 ];
 
 const inputAddons = [
-    { prefix: "Current Salary", suffix: "₹" },
-    { prefix: "Hike percentage", suffix: "%" },
-    { prefix: "Updated Salary", suffix: "₹" },
-    { prefix: "", suffix: "₹" },
-    { prefix: "", suffix: "₹" },
+    { prefix: "Current Salary", suffix: "" },
+    { prefix: "Hike percentage", suffix: "" },
+    { prefix: "Updated Salary", suffix: "" },
 ];
 
 const resultAddons = [
