@@ -30,12 +30,13 @@ const numWords = [
 ];
 
 const inputAddons = [
-    { prefix: "Current Salary", suffix: "" },
+    { prefix: "Current Salary", suffix: "₹" },
     { prefix: "Hike percentage", suffix: "%" },
+    { prefix: "Updated Salary", suffix: "₹" },
 ];
 
 const resultAddons = [
-    { prefix: "Your new salary after the hike is ", suffix: "₹" },
+    { prefix: "Value of x ", suffix: "" },
 ];
 
 const inputSpans = [
@@ -179,13 +180,23 @@ function calculateFun() {
         let inputVars = []
         for (let i = 0; i < inputCount; i++) {
             let inputVar = document.getElementById(`inputNumber${numWords[i]}`).value;
-            inputVars.push(Number(inputVar));
+            inputVars.push(inputVar);
         }
 
-        let [sal, per] = inputVars;
-        let res = sal + (sal * per) / 100;
+        let [sal, per, hike] = inputVars;
 
-        resultBoxFirst.value = res;
+        if(sal.toLowerCase() === 'x') {
+            [hike, per] = [Number(hike), Number(per)];
+            resultBoxFirst.value = hike - (hike * per) / 100;
+        }else if(per.toLowerCase() === 'x') {
+            [sal, hike] = [Number(sal), Number(hike)];
+            resultBoxFirst.value = Math.abs(100 - (hike * 100) / sal);
+        }else if(hike.toLowerCase() === 'x') {
+            [sal, per] = [Number(sal), Number(per)];
+            resultBoxFirst.value = sal + (sal * per)/100;
+        }else {
+            alert('Have you entered all the values? Please put x for one box. This is the value which will be calculated');
+        }
     }
 }
 
