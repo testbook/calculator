@@ -31,8 +31,9 @@ const numWords = [
 
 const inputAddons = [
     { prefix: "Mass (m)", suffix: "Kg" },
-    { prefix: "Velocity Change  (Δ v) ", suffix: "m/s" },
-    { prefix: "Impulse (I)", suffix: "kg - m/s" },
+    { prefix: "Radius (r)", suffix: "m" },
+    { prefix: "Velocity (v)", suffix: "m/s" },
+    { prefix: "Centripetal Force (f)", suffix: "N" },
 ];
 
 const resultAddons = [
@@ -62,7 +63,7 @@ const pattern = /.{1}\d|\d|-{1}\d/;
 
 window.onload = function () {
     switch (calcType) {
-        case "impulse-calculator":
+        case "centripetal-force-calculator":
             inputGenerator();
             resultBoxGenerator();
             break;
@@ -182,17 +183,21 @@ function calculateFun() {
             let inputVar = document.getElementById(`inputNumber${numWords[i]}`).value;
             inputVars.push(inputVar);
         }
-        [m, vc, im] = inputVars;
 
-        if (m.toLowerCase() === 'x') {
-            [im, vc] = [Number(im), Number(vc)];
-            resultBoxFirst.value = im / vc;
-        }else if(vc.toLowerCase() === 'x'){
-            [im, m] = [Number(im), Number(m)];
-            resultBoxFirst.value = im / m;
-        }else if(im.toLowerCase() === 'x'){
-            [m, vc] = [Number(m), Number(vc)];
-            resultBoxFirst.value = m * vc;
+        [m, r, v, f] = inputVars;
+
+        if(m.toLowerCase() === 'x') {
+            [r, v, f] = [Number(r), Number(v), Number(f)];
+            resultBoxFirst.value =  f*r/Math.pow(v,2);
+        }else if(r.toLowerCase() === 'x') {
+            [m, v, f] = [Number(m), Number(v), Number(f)];
+            resultBoxFirst.value = (m * Math.pow(v,2))/f;
+        }else if(v.toLowerCase() === 'x') {
+            [m, r, f] = [Number(m), Number(r), Number(f)];
+            resultBoxFirst.value =  Math.sqrt(f*r/m);
+        }else if(f.toLowerCase() === 'x') {
+            [m, r, v] = [Number(m), Number(r), Number(v)];
+            resultBoxFirst.value = (m * Math.pow(v,2))/r;
         }else {
             alert('Have you entered all the values? Please put x for one box. This is the value which will be calculated');
         }
