@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Decimal Notation Calculator</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Decimal Notation Calculator</h2>
+            <p>Enter a number and choose the desired decimal notation format</p>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <div class="input-group">
+                    <span class="input-addon">Number:</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumber" id="inputNumber" required>
+                </div>
+                <div class="input-group">
+                    <span class="input-addon">Decimal Notation:</span>
+                    <select name="decimalNotation" id="decimalNotation">
+                        <option value="scientific">Scientific</option>
+                        <option value="fixed">Fixed</option>
+                        <option value="engineering">Engineering</option>
+                    </select>
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateDecimalNotation()">Calculate</button>
+                    <div onclick="resetDecimalNotation()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div class="input-group" id="inputResultStyle">
+                    <span class="input-addon">Result:</span>
+                    <input type="text" name="resultValue" disabled value="" id="resultValue">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const params = new URLSearchParams(window.location.search);
+        const calcType = params.get('type');
+
+        const calcEmptyBody = document.getElementById('cardBody');
+
+        const errorAlertText = 'Should be a valid number.';
+        const errorAlertSelector = document.getElementById('errorAlert');
+
+        const inputNumber = document.getElementById('inputNumber');
+        const decimalNotation = document.getElementById('decimalNotation');
+        const resultValue = document.getElementById('resultValue');
+
+        window.onload = function () {
+            switch (calcType) {
+                case "decimal-notation-calculator":
+                    break;
+                default:
+                    calcEmptyBody.innerHTML = `
+                        <div class="card__empty">
+                            <h3>Wrong URL</h3>
+                        </div>
+                    `;
+            }
+        };
+
+        function calculateDecimalNotation() {
+            if (!inputNumber.checkValidity() || isNaN(inputNumber.value)) {
+                inputNumber.parentElement.classList.add('has-error');
+            } else {
+                var number = parseFloat(inputNumber.value);
+                var notation = decimalNotation.value;
+                var result;
+
+                switch (notation) {
+                    case "scientific":
+                        result = number.toExponential();
+                        break;
+                    case "fixed":
+                        result = number.toFixed(2);
+                        break;
+                    case "engineering":
+                        result = number.toPrecision(3);
+                        break;
+                }
+
+                resultValue.value = result;
+            }
+        }
+
+        function onkeyPressFun() {
+            inputNumber.parentElement.classList.remove('has-error');
+            errorAlertSelector.innerHTML = '';
+            checkEvent(event);
+        }
+
+        function checkEvent(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                event.preventDefault();
+            }
+            if (event.code === 'Space') {
+                if (inputNumber.value.length == 0) {
+                    errorAlertSelector.innerHTML = errorAlertText;
+                    inputNumber.parentElement.classList.add('has-error');
+                }
+            }
+        }
+
+        function resetDecimalNotation() {
+            inputNumber.parentElement.classList.remove('has-error');
+            inputNumber.value = "";
+            errorAlertSelector.innerHTML = "";
+            resultValue.value = "";
+        }
+    </script>
+    <script type="text/javascript" src="./script/math.js"></script>
+</body>
+
+</html>

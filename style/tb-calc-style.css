@@ -169,7 +169,7 @@
         white-space: nowrap;
     }
     
-    .input-group>input {
+    .input-group>input, .input-group>select {
         padding: 0;
         outline: 0;
         height: 34px;

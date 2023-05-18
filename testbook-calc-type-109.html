@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angle Calculator by Testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Angle Between Two Vectors Calculator</h2>
+            <p>Enter the coordinates of the two vectors to calculate the angle between them</p>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <div class="input-group">
+                    <span class="input-addon">Vector 1:</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst"
+                        id="inputNumberFirst" required>
+                    <span class="input-addon">i</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond"
+                    id="inputNumberSecond" required>
+                    <span class="input-addon">j</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberThird"
+                    id="inputNumberThird" required>
+                    <span class="input-addon">k</span>
+                </div>
+                <div class="input-group">
+                    <span class="input-addon">Vector 2:</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFourth"
+                        id="inputNumberFourth" required>
+                    <span class="input-addon">i</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFifth"
+                        id="inputNumberFifth" required>
+                    <span class="input-addon">j</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSixth"
+                        id="inputNumberSixth" required>
+                    <span class="input-addon">k</span>
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateAngle()">Calculate</button>
+                    <div onclick="resetAngle()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div class="input-group" id="inputResultStyle">
+                    <span class="input-addon">Angle (Degrees):</span>
+                    <input type="text" name="resultBoxFirst" disabled value="" id="resultBoxFirst">
+                </div>
+                <div class="input-group" id="inputResultStyle">
+                    <span class="input-addon">Angle (Radians):</span>
+                    <input type="text" name="resultBoxSecond" disabled value="" id="resultBoxSecond">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const params = new URLSearchParams(window.location.search);
+        const calcType = params.get('type');
+
+        const calcEmptyBody = document.getElementById('cardBody');
+
+        const errorAlertText = 'Should be minimum 1 character.';
+        const errorAlertSelector = document.getElementById('errorAlert');
+
+        const inputNumberFirst = document.getElementById('inputNumberFirst');
+        const inputNumberSecond = document.getElementById('inputNumberSecond');
+        const inputNumberThird = document.getElementById('inputNumberThird');
+        const inputNumberFourth = document.getElementById('inputNumberFourth');
+        const inputNumberFifth = document.getElementById('inputNumberFifth');
+        const inputNumberSixth = document.getElementById('inputNumberSixth');
+        const resultBoxFirst = document.getElementById('resultBoxFirst');
+        const resultBoxSecond = document.getElementById('resultBoxSecond');
+
+        window.onload = function () {
+            switch (calcType) {
+                case "angle-between-vectors-calculator":
+                    break;
+                default:
+                    calcEmptyBody.innerHTML = `
+                        <div class="card__empty">
+                            <h3>Wrong URL</h3>
+                        </div>
+                    `;
+            }
+        };
+
+        function calculateAngle() {
+            if (!inputNumberFirst.checkValidity() || isNaN(inputNumberFirst.value)) {
+                inputNumberFirst.parentElement.classList.add('has-error');
+            }
+            else if (!inputNumberSecond.checkValidity() || isNaN(inputNumberSecond.value)) {
+                inputNumberSecond.parentElement.classList.add('has-error');
+            }
+            else if (!inputNumberThird.checkValidity() || isNaN(inputNumberThird.value)) {
+                inputNumberThird.parentElement.classList.add('has-error');
+            }
+            else if (!inputNumberFourth.checkValidity() || isNaN(inputNumberFourth.value)) {
+                inputNumberFourth.parentElement.classList.add('has-error');
+            }
+            else if (!inputNumberFifth.checkValidity() || isNaN(inputNumberFifth.value)) {
+                inputNumberFifth.parentElement.classList.add('has-error');
+            }
+            else if (!inputNumberSixth.checkValidity() || isNaN(inputNumberSixth.value)) {
+                inputNumberSixth.parentElement.classList.add('has-error');
+            }
+            else {
+                var x1 = parseFloat(inputNumberFirst.value);
+                var y1 = parseFloat(inputNumberSecond.value);
+                var z1 = parseFloat(inputNumberThird.value);
+                var x2 = parseFloat(inputNumberFourth.value);
+                var y2 = parseFloat(inputNumberFifth.value);
+                var z2 = parseFloat(inputNumberSixth.value);
+                
+                var dotProduct = x1 * x2 + y1 * y2 + z1 * z2;
+                var magnitude1 = Math.sqrt(x1 * x1 + y1 * y1 + z1 * z1);
+                var magnitude2 = Math.sqrt(x2 * x2 + y2 * y2 + z2 * z2);
+                
+                var angleInRadians = Math.acos(dotProduct / (magnitude1 * magnitude2));
+                var angleInDegrees = angleInRadians * (180 / Math.PI);
+                
+                resultBoxFirst.value = angleInDegrees.toFixed(2);
+                resultBoxSecond.value = angleInRadians.toFixed(2);
+            }
+        }
+
+        function onkeyPressFun() {
+            inputNumberFirst.parentElement.classList.remove('has-error');
+            inputNumberSecond.parentElement.classList.remove('has-error');
+            inputNumberThird.parentElement.classList.remove('has-error');
+            inputNumberFourth.parentElement.classList.remove('has-error');
+            inputNumberFifth.parentElement.classList.remove('has-error');
+            inputNumberSixth.parentElement.classList.remove('has-error');
+            errorAlertSelector.innerHTML = '';
+            checkEvent(event);
+        }
+
+        function checkEvent(event) {
+            if (event.code === 'Space' || event.code === 'Enter') {
+                event.preventDefault();
+            }
+            if (event.code === 'Space') {
+                if (inputNumberFirst.value.length == 0) {
+                    errorAlertSelector.innerHTML = errorAlertText;
+                    inputNumberFirst.parentElement.classList.add('has-error');
+                }
+                else if (inputNumberSecond.value.length == 0) {
+                        errorAlertSelector.innerHTML = errorAlertText;
+                        inputNumberSecond.parentElement.classList.add('has-error');
+                    }
+                else if (inputNumberThird.value.length == 0) {
+                    errorAlertSelector.innerHTML = errorAlertText;
+                    inputNumberThird.parentElement.classList.add('has-error');
+                }
+                else if (inputNumberFourth.value.length == 0) {
+                    errorAlertSelector.innerHTML = errorAlertText;
+                    inputNumberFourth.parentElement.classList.add('has-error');
+                }
+                else if (inputNumberFifth.value.length == 0) {
+                    errorAlertSelector.innerHTML = errorAlertText;
+                    inputNumberFifth.parentElement.classList.add('has-error');
+                }
+                else if (inputNumberSixth.value.length == 0) {
+                    errorAlertSelector.innerHTML = errorAlertText;
+                    inputNumberSixth.parentElement.classList.add('has-error');
+                }
+            }
+        }
+
+        function resetAngle() {
+            inputNumberFirst.parentElement.classList.remove('has-error');
+            inputNumberFirst.value = "";
+            inputNumberSecond.parentElement.classList.remove('has-error');
+            inputNumberSecond.value = "";
+            inputNumberThird.parentElement.classList.remove('has-error');
+            inputNumberThird.value = "";
+            inputNumberFourth.parentElement.classList.remove('has-error');
+            inputNumberFourth.value = "";
+            inputNumberFifth.parentElement.classList.remove('has-error');
+            inputNumberFifth.value = "";
+            inputNumberSixth.parentElement.classList.remove('has-error');
+            inputNumberSixth.value = "";
+            errorAlertSelector.innerHTML = "";
+            resultBoxFirst.value = "";
+            resultBoxSecond.value = "";
+        }
+    </script>
+    <script type="text/javascript" src="./script/math.js"></script>
+</body>
+
+</html>
