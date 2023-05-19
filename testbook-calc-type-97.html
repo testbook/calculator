@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+    <style>
+        .input-flex {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Mixed Fraction To Improper Fraction Calculator</h2>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div id="parentDiv">
+                <div class="input-flex">
+                    <span class="mb-1">Mixed Fraction</span>
+                    <div id="inputs" class="input-flex" reqd-inputs="1"></div>
+                    <div id="inputs" reqd-inputs="2"></div>
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateFun()">Calculate</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div class="input-flex">
+                    <span class="mb-1">Improper Fraction</span>
+                    <div id="result" reqd-inputs="2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/tb-calc-type-97.js"></script>
+</body>
+
+</html>

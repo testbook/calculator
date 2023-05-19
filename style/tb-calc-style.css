@@ -63,6 +63,10 @@
         width: 100%;
         height: 2px;
     }
+
+    input:disabled, input[disabled] {
+        cursor: no-drop;
+    }
     
     h2 {
         font-size: 1.125rem;
@@ -73,6 +77,10 @@
         h2 {
             font-size: 1.5rem;
         }
+    }
+
+    .mb-1 {
+        margin-bottom: 1rem;
     }
     
     .calc-page {
@@ -92,6 +100,11 @@
         position: relative;
         width: 100%;
         height: 100%;
+    }
+
+    .card__centered {
+        height: 100%;
+        justify-content: center;
     }
     
     .card .card__header {
@@ -156,7 +169,7 @@
         white-space: nowrap;
     }
     
-    .input-group>input {
+    .input-group>input, .input-group>select {
         padding: 0;
         outline: 0;
         height: 34px;
@@ -304,5 +317,25 @@
         outline: none;
         color: white;
         padding: 5px;
+    }
+
+    .input-flex{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .input-flex__column{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .input-flex__column > hr{
+        height: 1px;
+        margin: 0;
+        background: black;
+    }
+    .input-flex__column > .input-group{
+        max-width: 160px;
+        margin-bottom: 0;
     }
     

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sine Cosine Tangent Calculator</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css" />
+  </head>
+
+  <body class="calc-page">
+    <div class="card card--center">
+      <div class="card__header">
+        <h2>Sine Cosine Tangent Calculator</h2>
+        <p>
+          Enter the lengths of the opposite and adjacent sides to calculate the
+          hypotenuse, sine, cosine, and tangent
+        </p>
+      </div>
+      <div id="errorAlert"></div>
+      <div class="card__body card__body--flex-row" id="cardBody">
+        <div>
+          <div class="input-group">
+            <span class="input-addon">Opposite:</span>
+            <input
+              onkeypress="onkeyPressFun()"
+              type="text"
+              name="inputOpposite"
+              id="inputOpposite"
+              required
+            />
+          </div>
+          <div class="input-group">
+            <span class="input-addon">Adjacent:</span>
+            <input
+              onkeypress="onkeyPressFun()"
+              type="text"
+              name="inputAdjacent"
+              id="inputAdjacent"
+              required
+            />
+          </div>
+          <div class="input-action">
+            <button onclick="calculateTrigValues()">Calculate</button>
+            <div onclick="resetTrigValues()" class="input-reset">
+              <img
+                src="https://cdn.testbook.com/images/reset-icon.svg"
+                width="24"
+                height="24"
+              />
+            </div>
+          </div>
+          <div class="input-group" id="inputResultStyle">
+            <span class="input-addon">Hypotenuse:</span>
+            <input
+              type="text"
+              name="hypotenuseValue"
+              disabled
+              value=""
+              id="hypotenuseValue"
+            />
+          </div>
+          <div class="input-group" id="inputResultStyle">
+            <span class="input-addon">Sine:</span>
+            <input
+              type="text"
+              name="sineValue"
+              disabled
+              value=""
+              id="sineValue"
+            />
+          </div>
+          <div class="input-group" id="inputResultStyle">
+            <span class="input-addon">Cosine:</span>
+            <input
+              type="text"
+              name="cosineValue"
+              disabled
+              value=""
+              id="cosineValue"
+            />
+          </div>
+          <div class="input-group" id="inputResultStyle">
+            <span class="input-addon">Tangent:</span>
+            <input
+              type="text"
+              name="tangentValue"
+              disabled
+              value=""
+              id="tangentValue"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      const params = new URLSearchParams(window.location.search);
+      const calcType = params.get("type");
+
+      const calcEmptyBody = document.getElementById("cardBody");
+
+      const errorAlertText = "Should be a valid number.";
+      const errorAlertSelector = document.getElementById("errorAlert");
+
+      const inputOpposite = document.getElementById("inputOpposite");
+      const inputAdjacent = document.getElementById("inputAdjacent");
+      const hypotenuseValue = document.getElementById("hypotenuseValue");
+      const sineValue = document.getElementById("sineValue");
+      const cosineValue = document.getElementById("cosineValue");
+      const tangentValue = document.getElementById("tangentValue");
+
+      window.onload = function () {
+        switch (calcType) {
+          case "sine-cosine-tangent-calculator":
+            break;
+          default:
+            calcEmptyBody.innerHTML = `
+                        <div class="card__empty">
+                            <h3>Wrong URL</h3>
+                        </div>
+                    `;
+        }
+      };
+
+      function calculateTrigValues() {
+        if (!inputOpposite.checkValidity() || isNaN(inputOpposite.value)) {
+          inputOpposite.parentElement.classList.add("has-error");
+        } else if (
+          !inputAdjacent.checkValidity() ||
+          isNaN(inputAdjacent.value)
+        ) {
+          inputAdjacent.parentElement.classList.add("has-error");
+        } else {
+          var opposite = parseFloat(inputOpposite.value);
+          var adjacent = parseFloat(inputAdjacent.value);
+
+          var hypotenuse = Math.sqrt(opposite * opposite + adjacent * adjacent);
+          var sine = opposite / hypotenuse;
+          var cosine = adjacent / hypotenuse;
+          var tangent = opposite / adjacent;
+
+          hypotenuseValue.value = hypotenuse.toFixed(2);
+          sineValue.value = sine.toFixed(2);
+          cosineValue.value = cosine.toFixed(2);
+          tangentValue.value = tangent.toFixed(2);
+        }
+      }
+
+      function onkeyPressFun() {
+        inputOpposite.parentElement.classList.remove("has-error");
+        inputAdjacent.parentElement.classList.remove("has-error");
+        errorAlertSelector.innerHTML = "";
+        checkEvent(event);
+      }
+
+      function checkEvent(event) {
+        if (event.code === "Space" || event.code === "Enter") {
+          event.preventDefault();
+        }
+        if (event.code === "Space") {
+          if (inputOpposite.value.length == 0) {
+            errorAlertSelector.innerHTML = errorAlertText;
+            inputOpposite.parentElement.classList.add("has-error");
+          } else if (inputAdjacent.value.length == 0) {
+            errorAlertSelector.innerHTML = errorAlertText;
+            inputAdjacent.parentElement.classList.add("has-error");
+          }
+        }
+      }
+
+      function resetTrigValues() {
+        inputOpposite.parentElement.classList.remove("has-error");
+        inputOpposite.value = "";
+        inputAdjacent.parentElement.classList.remove("has-error");
+        inputAdjacent.value = "";
+        errorAlertSelector.innerHTML = "";
+        hypotenuseValue.value = "";
+        sineValue.value = "";
+        cosineValue.value = "";
+        tangentValue.value = "";
+      }
+    </script>
+    <script type="text/javascript" src="./script/math.js"></script>
+  </body>
+</html>
