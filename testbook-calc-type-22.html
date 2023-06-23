@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>free calculator by testbook</title>
+    <link rel="stylesheet" type="text/css" href="./style/tb-calc-style.css">
+</head>
+
+<body class="calc-page">
+    <div class="card card--center">
+        <div class="card__header">
+            <h2>Volume of Cuboid</h2>
+        </div>
+        <div id="errorAlert"></div>
+        <div class="card__body card__body--flex-row" id="cardBody">
+            <div>
+                <div class="input-group">
+                    <span class="input-addon">Length</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberFirst" id="inputNumberFirst" 
+                     required minlength="1">
+                </div>
+                <div class="input-group">
+                    <span class="input-addon">Width</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberSecond" id="inputNumberSecond" 
+                     required minlength="1">
+                </div>
+                <div class="input-group">
+                    <span class="input-addon">Height</span>
+                    <input onkeypress="onkeyPressFun()" type="text" name="inputNumberThird" id="inputNumberThird" 
+                     required minlength="1">
+                </div>
+                <div class="input-action">
+                    <button onclick="calculateFun()">Calculate</button>
+                    <div onclick="resetFun()" class="input-reset">
+                        <img src="https://cdn.testbook.com/images/reset-icon.svg" width="24" height="24" />
+                    </div>
+                </div>
+                <div class="input-group" id=inputResultStyle>
+                    <span class="input-addon">Volume of Cuboid :</span>
+                    <input type="text" name="resultBox" disabled value="" id="resultBox">
+                </div>
+            </div>
+            <div style="padding: 1rem 3rem;">
+            <img src="https://www.onlinemath4all.com/images/cuboidmensuration.png" alt="Cuboid Image" width="350" height="auto">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="./script/tb-calc-type-22.js"></script>
+</body>
+
+</html>     
